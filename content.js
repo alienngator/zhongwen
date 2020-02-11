@@ -891,19 +891,23 @@ function makeHtml(result, showToneColors) {
 
     if (result === null) return '';
 
+    // HACK: Cache last displayed word, so that Vietnamese fields don't get
+    // displayed multiple times.
+    let prevWord;
     for (let i = 0; i < result.data.length; ++i) {
         entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
-        if (!entry || entry[4].includes('surname')) continue;
+        if (!entry) continue;
 
         // Parse definition fields, which may or may not include Han Viet data.
         // TODO: Make this part of the regex match, when I'm less sleepy.
         const defFields = entry[4].split('\t');
         const enDef = defFields[0].slice(0, -1).replace(/\//g, '; ');
         let hanViet, viDef;
-        if (defFields.length > 1) {
+        if (defFields.length > 1 && entry[1] !== prevWord) {
             hanViet = defFields[1];
             viDef = defFields[2].substring(1).replace(/\//g, '<br>');
         }
+        prevWord = entry[1];
 
         // Hanzi
 
