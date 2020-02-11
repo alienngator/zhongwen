@@ -1,4 +1,8 @@
-### Contributors
+### Chinese-Vietnamese dictionary data
+
+Hán Việt tự điển, Thiều Chửu, Hà Nội, 1942.
+
+### Zhongwen credits
 
 The Zhongwen Chrome extension was written by Christian Schiller with
 contributions from the following people:
