@@ -1,9 +1,9 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
   "name": "HanViet: Từ Điển Hán Việt",
   "short_name": "HanViet",
   "version": "0.0.1",
-  "author": "Christian Schiller",
+  "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/aliengator/zhongwen",
   "description": "Tool for learning Chinese.",
   "icons": {
