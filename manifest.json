@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/aliengator/zhongwen",
-  "description": "Tool for learning Chinese.",
+  "description": "Công cụ học tiếng Trung. Fork of the popular Zhongwen popup dictionary.",
   "icons": {
     "16": "images/zhongwen16.png",
     "48": "images/zhongwen48.png",
@@ -13,7 +13,7 @@
   },
   "browser_action": {
     "default_icon": "images/zhongwen48.png",
-    "default_title": "Zhongwen Popup Dictionary"
+    "default_title": "Từ Điển Hán Việt Popup"
   },
   "background": {
     "page": "background.html"
