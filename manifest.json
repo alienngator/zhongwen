@@ -44,7 +44,7 @@
   ],
   "commands": {
     "_execute_browser_action": {
-      "description": "Enable/Disable Zhongwen"
+      "description": "Enable/Disable Hanviet"
     }
   },
   "web_accessible_resources": [
