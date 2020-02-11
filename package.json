@@ -1,21 +1,23 @@
 {
-  "name": "zhongwen",
-  "version": "5.15.0",
-  "description": "Chinese Pop-Up Dictionary",
+  "name": "hanviet",
+  "version": "0.0.1",
+  "description": "Từ Điển Hán Việt Popup",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cschiller/zhongwen.git"
+    "url": "git+https://github.com/aliengator/zhongwen.git"
   },
   "keywords": [
-    "Chinese",
+    "Hán",
+    "Việt",
+    "từ điển",
     "Dictionary"
   ],
   "author": "Christian Schiller",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/cschiller/zhongwen/issues"
+    "url": "https://github.com/aliengator/zhongwen/issues"
   },
-  "homepage": "https://github.com/cschiller/zhongwen#readme",
+  "homepage": "https://github.com/aliengator/zhongwen#readme",
   "devDependencies": {
     "eslint": "^8.10.0",
     "stylelint": "^14.5.3",
