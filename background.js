@@ -47,6 +47,7 @@
 'use strict';
 
 import { ZhongwenDictionary } from './dict.js';
+import { Utils } from './utils.js';
 
 let isEnabled = localStorage['enabled'] === '1';
 
@@ -170,7 +171,7 @@ function activateExtension(tabId, showHelp) {
 
 async function loadDictData() {
     let wordDict = fetch(chrome.runtime.getURL(
-        "data/cedict_ts.u8")).then(r => r.text());
+        "data/cedict_augmented.u8")).then(r => r.text());
     let wordIndex = fetch(chrome.runtime.getURL(
         "data/cedict.idx")).then(r => r.text());
     let grammarKeywords = fetch(chrome.runtime.getURL(
@@ -182,6 +183,7 @@ async function loadDictData() {
 
 async function loadDictionary() {
     let [wordDict, wordIndex, grammarKeywords] = await loadDictData();
+    Utils.genIndex(wordDict);
     return new ZhongwenDictionary(wordDict, wordIndex, grammarKeywords);
 }
 
