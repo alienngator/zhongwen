@@ -892,8 +892,18 @@ function makeHtml(result, showToneColors) {
     if (result === null) return '';
 
     for (let i = 0; i < result.data.length; ++i) {
-        entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+)\//);
-        if (!entry) continue;
+        entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
+        if (!entry || entry[4].includes('surname')) continue;
+
+        // Parse definition fields, which may or may not include Han Viet data.
+        // TODO: Make this part of the regex match, when I'm less sleepy.
+        const defFields = entry[4].split('\t');
+        const enDef = defFields[0].slice(0, -1).replace(/\//g, '; ');
+        let hanViet, viDef;
+        if (defFields.length > 1) {
+            hanViet = defFields[1];
+            viDef = defFields[2].substring(1).replace(/\//g, '<br>');
+        }
 
         // Hanzi
 
@@ -929,6 +939,12 @@ function makeHtml(result, showToneColors) {
         let p = pinyinAndZhuyin(entry[3], showToneColors, pinyinClass);
         html += p[0];
 
+        // Han Viet
+        const hanvietClass = 'w-hanviet' + (config.fontSize === 'small' ? '-small' : '');
+        if (hanViet) {
+            html += `&nbsp;<span class="${pinyinClass} ${hanvietClass}">${hanViet}</span>`;
+        }
+
         // Zhuyin
 
         if (config.zhuyin === 'yes') {
@@ -941,8 +957,7 @@ function makeHtml(result, showToneColors) {
         if (config.fontSize === 'small') {
             defClass += '-small';
         }
-        let translation = entry[4].replace(/\//g, ' ◆ ');
-        html += '<br><span class="' + defClass + '">' + translation + '</span><br>';
+        html += '<br><span class="' + defClass + '">' + (viDef || '') + enDef + '</span><br>';
 
         let addFinalBr = false;
 
@@ -962,7 +977,7 @@ function makeHtml(result, showToneColors) {
             html += '<br>';
         }
 
-        texts[i] = [entry[2], entry[1], p[1], translation, entry[3]];
+        texts[i] = [entry[2], entry[1], p[1], enDef, entry[3]];
     }
     if (result.more) {
         html += '&hellip;<br/>';

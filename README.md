@@ -11,8 +11,8 @@ This browser extension allows you to translate Chinese characters and words
 by simply hovering over them with the mouse.  
 It also contains useful features for learners of the Chinese language.
 
-[![Chrome](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde)
-[![Firefox](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen)
+<!-- [![Chrome](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde)
+[![Firefox](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen) -->
 
 
 ## Highlights

@@ -38,6 +38,10 @@
   margin-right: 0.7em;
 }
 
+#zhongwen-window .w-hanviet {
+  margin-left: 0.7em;
+}
+
 #zhongwen-window .w-pinyin {
   font-size: 18px;
 }
@@ -54,6 +58,10 @@
 #zhongwen-window .w-hanzi-small {
   font-size: 18px;
   margin-right: 0.7em;
+}
+
+#zhongwen-window .w-hanviet-small {
+  margin-left: 0.7em;
 }
 
 #zhongwen-window .w-pinyin-small {
