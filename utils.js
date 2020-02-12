@@ -11,7 +11,7 @@ export class Utils {
         const lines = wordDict.split('\n');
         let offset = 0;
         lines.forEach((line, line_num) => {
-            if (line_num >= 35) {
+            if (line_num >= 34) {
                 const data = line.split(' ');
                 const trad = data[0];
                 const smpl = data[1];
@@ -20,9 +20,11 @@ export class Utils {
                     Utils.addToIndex(index, smpl, offset);
                 }
             }
-            offset = offset + line.length + 1
+            offset = offset + line.length + 1;
         });
-        const text = Array.from(index.values()).join('\n');
+        const idxArr = Array.from(index.values());
+        idxArr.splice(-2, 2);
+        const text = idxArr.sort().join('\n');
         console.log(text);
         return text;
     }
