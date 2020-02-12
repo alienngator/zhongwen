@@ -5,14 +5,14 @@
   "version": "0.0.1",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/aliengator/zhongwen",
-  "description": "Công cụ học tiếng Trung. Fork of the popular Zhongwen popup dictionary.",
+  "description": "Công cụ học tiếng Trung. Fork of the Zhongwen popup dictionary, adapted for Vietnamese.",
   "icons": {
-    "16": "images/zhongwen16.png",
-    "48": "images/zhongwen48.png",
-    "128": "images/zhongwen.png"
+    "16": "images/hanviet16.png",
+    "48": "images/hanviet48.png",
+    "128": "images/hanviet128.png"
   },
   "browser_action": {
-    "default_icon": "images/zhongwen48.png",
+    "default_icon": "images/hanviet48.png",
     "default_title": "Từ Điển Hán Việt Popup"
   },
   "background": {

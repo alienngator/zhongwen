@@ -1,25 +1,24 @@
-# 中文 Zhongwen
-
-[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/kkmlkkjojmombglmlpbpapmhcaljjkde)](https://chrome.google.com/webstore/detail/zhongwen-chinese-english/kkmlkkjojmombglmlpbpapmhcaljjkde)
-[![Chrome Users](https://img.shields.io/chrome-web-store/users/kkmlkkjojmombglmlpbpapmhcaljjkde?label=chrome%20users)](https://chrome.google.com/webstore/detail/zhongwen-chinese-english/kkmlkkjojmombglmlpbpapmhcaljjkde)
-[![Mozilla Add-on Version](https://img.shields.io/amo/v/zhongwen)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen/)
-[![Firefox Users](https://img.shields.io/amo/users/zhongwen?label=firefox%20users)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen/)
-
+# 汉越 Hanviet
 ## A Chinese Pop-Up Dictionary and Learning Tool
 
 This browser extension allows you to translate Chinese characters and words
 by simply hovering over them with the mouse.  
 It also contains useful features for learners of the Chinese language.
 
-<!-- [![Chrome](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde)
-[![Firefox](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen) -->
+
+Download links for Hanviet:
+
+
+Download links for Zhongwen:
+[![Chrome](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde)
+[![Firefox](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/zhongwen)
 
 
 ## Highlights
 - Supports both traditional and simplified characters.
 - Includes a recent version of the widely used 
   [CEDICT](https://cc-cedict.org/wiki) Chinese English dictionary.
-- Displays Hanyu Pinyin along both the simplified and traditional characters,
+- Displays Han Viet and Hanyu Pinyin along both the simplified and traditional characters,
   however only showing either simplified or traditional characters
   can be configured as an option.
 - As a learning aid it uses different colors for displaying the Pinyin
@@ -36,22 +35,6 @@ It also contains useful features for learners of the Chinese language.
   [Chinese Grammar Wiki](https://resources.allsetlearning.com/chinese/grammar).
 - Supports exporting words to the [Skritter](https://skritter.com) vocabulary 
   queue.
-
-
-## Installation
-
-### Chrome
-The Zhongwen Chrome extension is available via the Chrome Web Store:  
-https://chrome.google.com/extensions/detail/kkmlkkjojmombglmlpbpapmhcaljjkde
-
-Simply click on the "Add to Chrome" button to start the installation.
-
-
-### Firefox
-The Zhongwen Firefox extension is available via the Firefox Add-Ons site:  
-https://addons.mozilla.org/en-US/firefox/addon/zhongwen
-
-Simply click on the "Add to Firefox" button to start the installation.
 
 
 ## How Does It Work?
@@ -212,4 +195,4 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 ---
 
-*Copyright (C) 2023 Christian Schiller*
+*Copyright (C) 2024 Liên Hoàng*
