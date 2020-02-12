@@ -33,6 +33,10 @@
   box-shadow: 10px 10px 5px -5px #999999;
 }
 
+#zhongwen-window b {
+  font-weight: bold;
+}
+
 #zhongwen-window .w-hanzi {
   font-size: 32px;
   margin-right: 0.7em;
@@ -48,6 +52,7 @@
 
 #zhongwen-window .w-def {
   font-size: 16px;
+  line-height: 19.5px;
 }
 
 #zhongwen-window .w-zhuyin {
@@ -70,6 +75,7 @@
 
 #zhongwen-window .w-def-small {
   font-size: 12px;
+  line-height: 14.5px;
 }
 
 #zhongwen-window .w-zhuyin-small {

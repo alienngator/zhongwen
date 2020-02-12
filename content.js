@@ -896,7 +896,7 @@ function makeHtml(result, showToneColors) {
     let prevWord;
     for (let i = 0; i < result.data.length; ++i) {
         entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
-        if (!entry) continue;
+        if (!entry || entry[4].includes('surname')) continue;
 
         // Parse definition fields, which may or may not include Han Viet data.
         // TODO: Make this part of the regex match, when I'm less sleepy.
@@ -906,8 +906,8 @@ function makeHtml(result, showToneColors) {
         if (defFields.length > 1 && entry[1] !== prevWord) {
             hanViet = defFields[1];
             viDef = defFields[2].substring(1).replace(/\//g, '<br>');
+            prevWord = entry[1];
         }
-        prevWord = entry[1];
 
         // Hanzi
 
@@ -961,7 +961,7 @@ function makeHtml(result, showToneColors) {
         if (config.fontSize === 'small') {
             defClass += '-small';
         }
-        html += '<br><span class="' + defClass + '">' + (viDef || '') + enDef + '</span><br>';
+        html += `<br><span class="${defClass}">${viDef || ''}<b>ENG </b>${enDef}</span><br>`;
 
         let addFinalBr = false;
 

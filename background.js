@@ -295,7 +295,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
 
         case 'search': {
             let response = search(request.text);
-            response.originalText = request.originalText;
+            if (response) {
+                response.originalText = request.originalText;
+            }
             callback(response);
         }
             break;
