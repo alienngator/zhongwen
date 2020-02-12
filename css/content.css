@@ -24,7 +24,7 @@
   position: absolute;
   z-index: 999999999;
   border: 1px solid #d0d0d0 !important;
-  padding: 4px;
+  padding: 2px 6px 6px;
   background: #e6f4ff;
   top: 5px;
   left: 5px;
@@ -90,6 +90,12 @@
 #zhongwen-window .vocab {
   font-weight: bold;
 }
+
+#zhongwen-window .w-hanviet,
+#zhongwen-window .w-hanviet-small {
+  opacity: 0.6;
+}
+
 
 /* Yellow Background */
 #zhongwen-window.background-yellow,
