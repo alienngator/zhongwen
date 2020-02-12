@@ -896,7 +896,7 @@ function makeHtml(result, showToneColors) {
     let prevWord;
     for (let i = 0; i < result.data.length; ++i) {
         entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
-        if (!entry || entry[4].includes('surname')) continue;
+        if (!entry) continue;
 
         // Parse definition fields, which may or may not include Han Viet data.
         // TODO: Make this part of the regex match, when I'm less sleepy.
