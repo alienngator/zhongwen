@@ -542,6 +542,7 @@ function showPopup(html, elem, x, y, looseWidth) {
     if (!popup) {
         popup = document.createElement('div');
         popup.setAttribute('id', 'zhongwen-window');
+        popup.setAttribute('lang', 'vi');
         document.documentElement.appendChild(popup);
     }
 

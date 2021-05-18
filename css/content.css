@@ -38,7 +38,7 @@
 }
 
 #zhongwen-window .w-hanzi {
-  font-size: 32px;
+  font-size: 28px;
   margin-right: 0.7em;
 }
 
@@ -47,11 +47,11 @@
 }
 
 #zhongwen-window .w-pinyin {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #zhongwen-window .w-def {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 19.5px;
 }
 
