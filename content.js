@@ -117,15 +117,15 @@ function onKeyDown(keyDown) {
         return;
     }
 
-    if (keyDown.altKey && keyDown.keyCode === 87) {
-        // Alt + w
-        chrome.runtime.sendMessage({
-            type: 'open',
-            tabType: 'wordlist',
-            url: '/wordlist.html'
-        });
-        return;
-    }
+    // if (keyDown.altKey && keyDown.keyCode === 87) {
+    //     // Alt + w
+    //     chrome.runtime.sendMessage({
+    //         type: 'open',
+    //         tabType: 'wordlist',
+    //         url: '/wordlist.html'
+    //     });
+    //     return;
+    // }
 
     if (!isVisible()) {
         return;
@@ -138,9 +138,9 @@ function onKeyDown(keyDown) {
             triggerSearch();
             break;
 
-        case 67: // 'c'
-            copyToClipboard(getTextForClipboard());
-            break;
+        // case 67: // 'c'
+        //     copyToClipboard(getTextForClipboard());
+        //     break;
 
         case 66: // 'b'
         {
@@ -192,52 +192,52 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        case 82: // 'r'
-        {
-            let entries = [];
-            for (let j = 0; j < savedSearchResults.length; j++) {
-                let entry = {
-                    simplified: savedSearchResults[j][0],
-                    traditional: savedSearchResults[j][1],
-                    pinyin: savedSearchResults[j][2],
-                    definition: savedSearchResults[j][3]
-                };
-                entries.push(entry);
-            }
+        // case 82: // 'r'
+        // {
+        //     let entries = [];
+        //     for (let j = 0; j < savedSearchResults.length; j++) {
+        //         let entry = {
+        //             simplified: savedSearchResults[j][0],
+        //             traditional: savedSearchResults[j][1],
+        //             pinyin: savedSearchResults[j][2],
+        //             definition: savedSearchResults[j][3]
+        //         };
+        //         entries.push(entry);
+        //     }
 
-            chrome.runtime.sendMessage({
-                'type': 'add',
-                'entries': entries
-            });
+        //     chrome.runtime.sendMessage({
+        //         'type': 'add',
+        //         'entries': entries
+        //     });
 
-            showPopup('Added to word list.<p>Press Alt+W to open word list.', null, -1, -1);
-        }
-            break;
+        //     showPopup('Added to word list.<p>Press Alt+W to open word list.', null, -1, -1);
+        // }
+        //     break;
 
-        case 83: // 's'
-            {
+        // case 83: // 's'
+        //     {
 
-                // https://www.skritter.com/vocab/api/add?from=Chrome&lang=zh&word=浏览&trad=瀏 覽&rdng=liú lǎn&defn=to skim over; to browse
+        //         // https://www.skritter.com/vocab/api/add?from=Chrome&lang=zh&word=浏览&trad=瀏 覽&rdng=liú lǎn&defn=to skim over; to browse
 
-                let skritter = 'https://skritter.com';
-                if (config.skritterTLD === 'cn') {
-                    skritter = 'https://skritter.cn';
-                }
+        //         let skritter = 'https://legacy.skritter.com';
+        //         if (config.skritterTLD === 'cn') {
+        //             skritter = 'https://legacy.skritter.cn';
+        //         }
 
-                skritter +=
-                    '/vocab/api/add?from=zhongwen&ref=zhongwen&lang=zh&word=' +
-                    encodeURIComponent(savedSearchResults[0][0]) +
-                    '&trad=' + encodeURIComponent(savedSearchResults[0][1]) +
-                    '&rdng=' + encodeURIComponent(savedSearchResults[0][4]) +
-                    '&defn=' + encodeURIComponent(savedSearchResults[0][3]);
+        //         skritter +=
+        //             '/vocab/api/add?from=Zhongwen&siteref=Zhongwen&lang=zh&word=' +
+        //             encodeURIComponent(savedSearchResults[0][0]) +
+        //             '&trad=' + encodeURIComponent(savedSearchResults[0][1]) +
+        //             '&rdng=' + encodeURIComponent(savedSearchResults[0][4]) +
+        //             '&defn=' + encodeURIComponent(savedSearchResults[0][3]);
 
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'skritter',
-                    url: skritter
-                });
-            }
-            break;
+        //         chrome.runtime.sendMessage({
+        //             type: 'open',
+        //             tabType: 'skritter',
+        //             url: skritter
+        //         });
+        //     }
+        //     break;
 
         case 84: // 't'
             {
@@ -1115,14 +1115,6 @@ let miniHelp = `
     <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Alternate pop-up location</td></tr>
     <tr><td><b>y&nbsp;:</b></td><td>&nbsp;Move pop-up location down</td></tr>
     <tr><td><b>x&nbsp;:</b></td><td>&nbsp;Move pop-up location up</td></tr>
-    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>c&nbsp;:</b></td><td>&nbsp;Copy translation to clipboard</td></tr>
-    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>r&nbsp;:</b></td><td>&nbsp;Remember word by adding it to the built-in word list</td></tr>
-    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>Alt w&nbsp;:</b></td><td>&nbsp;Show the built-in word list in a new tab</td></tr>
-    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>s&nbsp;:</b></td><td>&nbsp;Add word to Skritter queue</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     </table>
     Look up selected text in online resources:
