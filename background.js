@@ -99,40 +99,43 @@ function activateExtension(tabId, showHelp) {
         'text': 'On'
     });
 
+    // chrome.contextMenus.create(
+    //     {
+    //         title: 'Open word list',
+    //         onclick: function () {
+    //             let url = chrome.runtime.getURL('/wordlist.html');
+    //             let tabID = tabIDs['wordlist'];
+    //             if (tabID) {
+    //                 chrome.tabs.get(tabID, function (tab) {
+    //                     if (tab && tab.url && (tab.url.substr(-13) === 'wordlist.html')) {
+    //                         chrome.tabs.reload(tabID);
+    //                         chrome.tabs.update(tabID, {
+    //                             active: true
+    //                         });
+    //                     } else {
+    //                         chrome.tabs.create({
+    //                             url: url
+    //                         }, function (tab) {
+    //                             tabIDs['wordlist'] = tab.id;
+    //                             chrome.tabs.reload(tab.id);
+    //                         });
+    //                     }
+    //                 });
+    //             } else {
+    //                 chrome.tabs.create(
+    //                     { url: url },
+    //                     function (tab) {
+    //                         tabIDs['wordlist'] = tab.id;
+    //                         chrome.tabs.reload(tab.id);
+    //                     }
+    //                 );
+    //             }
+    //         }
+    //     }
+    // );
     chrome.contextMenus.create(
         {
-            title: 'Open word list',
-            onclick: function () {
-                let url = '/wordlist.html';
-                let tabID = tabIDs['wordlist'];
-                if (tabID) {
-                    chrome.tabs.get(tabID, function (tab) {
-                        if (tab && tab.url && (tab.url.endsWith('wordlist.html'))) {
-                            chrome.tabs.update(tabID, {
-                                active: true
-                            });
-                        } else {
-                            chrome.tabs.create({
-                                url: url
-                            }, function (tab) {
-                                tabIDs['wordlist'] = tab.id;
-                            });
-                        }
-                    });
-                } else {
-                    chrome.tabs.create(
-                        { url: url },
-                        function (tab) {
-                            tabIDs['wordlist'] = tab.id;
-                        }
-                    );
-                }
-            }
-        }
-    );
-    chrome.contextMenus.create(
-        {
-            title: 'Show help in new tab',
+            title: 'Hiển thị Trợ giúp bằng tab mới',
             onclick: function () {
                 let url = '/help.html';
                 let tabID = tabIDs['help'];
