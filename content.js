@@ -903,7 +903,7 @@ function makeHtml(result, showToneColors) {
         const defFields = entry[4].split('\t');
         const enDef = defFields[0].slice(0, -1).replace(/\//g, '; ');
         let hanViet, viDef;
-        if (defFields.length > 1 && entry[1] !== prevWord) {
+        if (defFields.length > 1) {
             hanViet = defFields[1];
             viDef = defFields[2].substring(1).replace(/\//g, '<br>');
             prevWord = entry[1];
