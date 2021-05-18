@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "HanViet: Từ Điển Hán Việt",
   "short_name": "HanViet",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/aliengator/zhongwen",
-  "description": "Công cụ học tiếng Trung. Fork of the Zhongwen popup dictionary, adapted for Vietnamese.",
+  "description": "Từ điển Hán-Việt-Anh. Tiện ích tra từ nhanh cho trình duyệt Chromium.",
   "icons": {
     "16": "images/hanviet16.png",
     "48": "images/hanviet48.png",
