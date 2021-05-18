@@ -1,110 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hanviet Options</title>
+    <title>Tùy chọn Hanviet</title>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" href="images/hanviet128.png"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-    <h1 class="my-3">Options for the Hanviet Browser Extension</h1>
+    <h1 class="my-3">Cài đặt các tùy chọn cho tiện ích Hanviet</h1>
 
-    <h2 class="mb-3">Appearance of the Pop-up Window</h2>
+    <h2 class="mb-3">Giao diện ô định nghĩa</h2>
 
     <div class="form-group mb-4">
         <label>
-            Background color of the pop-up window
+            Màu nền ô định nghĩa pop-up
         </label>
         <div class="custom-control custom-radio">
             <input type="radio" id="popupColorYellow" name="popupColor" class="custom-control-input"
                    value="yellow">
-            <label class="custom-control-label" for="popupColorYellow">Yellow pop-up
-                background</label>
+            <label class="custom-control-label" for="popupColorYellow">Nền màu vàng</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="popupColorBlue" name="popupColor" class="custom-control-input"
                    value="blue">
-            <label class="custom-control-label" for="popupColorBlue">Blue pop-up background</label>
+            <label class="custom-control-label" for="popupColorBlue">Nền màu xanh đậm</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="popupColorLightBlue" name="popupColor"
                    class="custom-control-input" value="lightblue">
-            <label class="custom-control-label" for="popupColorLightBlue">Light blue pop-up
-                background</label>
+            <label class="custom-control-label" for="popupColorLightBlue">Nền màu xanh nhạt</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="popupColorBlack" name="popupColor" class="custom-control-input"
                    value="black">
-            <label class="custom-control-label" for="popupColorBlack">Black pop-up
-                background</label>
+            <label class="custom-control-label" for="popupColorBlack">Nền màu đen</label>
         </div>
     </div>
 
     <div class="form-group mb-4">
         <label>
-            Coloring pinyin syllables based on the tone of the character
+            Tô màu bính âm theo thanh điệu
         </label>
         <div class="custom-control custom-radio">
             <input type="radio" id="toneColorsStandard" name="toneColors"
                    class="custom-control-input" value="standard">
-            <label class="custom-control-label" for="toneColorsStandard">Use the default color
-                scheme.</label>
+            <label class="custom-control-label" for="toneColorsStandard">Dùng bảng màu mặc định</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="toneColorsPleco" name="toneColors" class="custom-control-input"
                    value="pleco">
-            <label class="custom-control-label" for="toneColorsPleco">Use the <a
-                    href="https://pleco.com" target="_blank">Pleco</a> color scheme.</label>
+            <label class="custom-control-label" for="toneColorsPleco">Dùng bảng màu giống <a
+                    href="https://pleco.com" target="_blank">Pleco</a></label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="toneColorsHanping" name="toneColors"
                    class="custom-control-input" value="hanping">
-            <label class="custom-control-label" for="toneColorsHanping">Use the <a
-                    href="https://hanpingchinese.com/" target="_blank">Hanping</a> color
-                scheme.</label>
+            <label class="custom-control-label" for="toneColorsHanping">Dùng bảng màu giống <a
+                    href="https://hanpingchinese.com/" target="_blank">Hanping</a></label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="toneColorsNone" name="toneColors" class="custom-control-input"
                    value="none">
-            <label class="custom-control-label" for="toneColorsNone">Don't show any tone
-                colors.</label>
+            <label class="custom-control-label" for="toneColorsNone">Không thêm màu vào bính âm</label>
         </div>
     </div>
 
     <div class="form-group mb-4">
-        <label>Font size of the characters in the pop-up window</label>
+        <label>Cỡ font chữ dùng trong ô định nghĩa</label>
         <div class="custom-control custom-radio">
             <input type="radio" id="fontSizeSmall" name="fontSize" class="custom-control-input"
                    value="small">
-            <label class="custom-control-label" for="fontSizeSmall">Display characters in a smaller
-                font size.</label>
+            <label class="custom-control-label" for="fontSizeSmall">Dùng cỡ font nhỏ</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="fontSizeLarge" name="fontSize" class="custom-control-input"
                    value="large">
-            <label class="custom-control-label" for="fontSizeLarge">Display characters in a larger
-                font size.</label>
+            <label class="custom-control-label" for="fontSizeLarge">Dùng cỡ font lớn</label>
         </div>
     </div>
 
     <div class="form-group mb-4">
-        <label>Simplified and traditional characters</label>
+        <label>Giản thể và phồn thể trong ô định nghĩa</label>
         <div class="custom-control custom-radio">
             <input type="radio" id="simpTradClassic" name="simpTrad" class="custom-control-input"
                    value="classic">
-            <label class="custom-control-label" for="simpTradClassic">Display both simplified and
-                traditional characters.</label>
+            <label class="custom-control-label" for="simpTradClassic">Hiển thị cả giản thể và phồn thể</label>
         </div>
         <div class="custom-control custom-radio">
             <input type="radio" id="simpTradAuto" name="simpTrad" class="custom-control-input"
                    value="auto">
-            <label class="custom-control-label" for="simpTradAuto">Use the character style
-                automatically detected on the page (either simplified or traditional).</label>
+            <label class="custom-control-label" for="simpTradAuto">Chỉ hiện thỉ giản thể hoặc phồn thể
+                (tự động nhận diện dựa theo trang Web)</label>
         </div>
     </div>
 
-    <div class="form-group mb-4">
+<!--     <div class="form-group mb-4">
         <label>Additional Chinese transliterations</label>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="zhuyin" name="zhuyin">
@@ -112,29 +103,19 @@
                     href="https://wikipedia.org/wiki/Bopomofo" target="_blank">Zhuyin (Bopomofo)</a>
                 phonetic symbols.</label>
         </div>
-    </div>
+    </div> -->
 
     <div class="form-group mb-4">
-        <label>Grammar and usage notes from the <a
+        <label>Chú thích ngữ pháp từ <a
                 href="https://resources.allsetlearning.com/chinese/grammar" target="_blank">Chinese
             Grammar Wiki</a></label>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="grammar" name="grammar">
-            <label class="custom-control-label" for="grammar">Show grammar and usage notes.</label>
+            <label class="custom-control-label" for="grammar">Hiển thị chú thích ngữ pháp</label>
         </div>
     </div>
 
-    <div class="form-group mb-4">
-        <label>Vocabulary notes from the <a
-                href="https://resources.allsetlearning.com/chinese/vocabulary" target="_blank">Chinese
-            Vocabulary Wiki</a></label>
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="vocab" name="vocab">
-            <label class="custom-control-label" for="vocab">Show vocabulary notes.</label>
-        </div>
-    </div>
-
-    <h2 class="mb-3">Other Options</h2>
+<!--     <h2 class="mb-3">Other Options</h2>
 
     <div class="form-group mb-4">
         <label>Saving entries to the <a
@@ -167,7 +148,7 @@
                    value="cn">
             <label class="custom-control-label" for="skritterTLDcn">skritter.cn</label>
         </div>
-    </div>
+    </div> -->
 </div>
 <script src="js/options.js" type="text/javascript"></script>
 </body>
