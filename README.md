@@ -3,7 +3,8 @@
 
 Tiện ích tra từ nhanh cho các trình duyệt Chromium (Chrome, Cốc Cốc,...).
 Chỉ cần đưa chuột qua là sẽ hiện pinyin, Hán Việt và tiếng Anh, ko cần click gì.
-Fork of the popular [Zhongwen chrome extension](https://github.com/cschiller/zhongwen)
+
+ork of the popular [Zhongwen chrome extension](https://github.com/cschiller/zhongwen)
 by Christian Schiller, adapted for Vietnamese by Lien Hoang.
 
 
@@ -21,11 +22,11 @@ Link để tải về:
       - Từ điển Hán Việt, Trần Văn Chánh, NXB Trẻ, TP Hồ Chí Minh, 1999.
       - Cơ sở dữ liệu Unihan do tổ chức Unicode ban hành.
       - Tự Điển Chữ Nôm (http://nomfoundation.org).
-    - Nguồn Hán-Anh [CEDICT](https://cc-cedict.org/wiki) Chinese English dictionary.
+    - Nguồn Hán-Anh: [CEDICT](https://cc-cedict.org/wiki) Chinese English dictionary.
     - Ngoài ra tiện ích cũng hộ trợ tra chéo trên nhiều từ điển trực tuyến uy tín:
-        - zdic.net Hán điển
-        - MOEdict của Bộ Giáo dục Đài Loan
-        - hvdic của Thi Viện
+        - zdic.net Hán điển (https://www.zdic.net/).
+        - MOEdict của Bộ Giáo dục Đài Loan (https://www.moedict.tw/).
+        - hvdic của Thi Viện (https://hvdic.thivien.net/whv).
 - Dễ dàng bật/tắt ứng dụng chỉ với một cú click chuột. Dễ dàng tra từ bằng cách
   di chuột qua mặt chữ, không cần nhấn, không cần mở tab khác.
 - Có phím tắt để nhảy đến cụm từ tiếp theo, Hán tự trước và sau.
