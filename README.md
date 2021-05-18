@@ -4,7 +4,7 @@
 Tiện ích tra từ nhanh cho các trình duyệt Chromium (Chrome, Cốc Cốc,...).
 Chỉ cần đưa chuột qua là sẽ hiện pinyin, Hán Việt và tiếng Anh, ko cần click gì.
 
-ork of the popular [Zhongwen chrome extension](https://github.com/cschiller/zhongwen)
+Fork of the popular [Zhongwen chrome extension](https://github.com/cschiller/zhongwen)
 by Christian Schiller, adapted for Vietnamese by Lien Hoang.
 
 
