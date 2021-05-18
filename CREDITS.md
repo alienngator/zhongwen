@@ -5,9 +5,14 @@ popular Zhongwen extension by Christian Schiller (original credits below).
 
 UI adapted for Vietnamese and Han Viet dictionary data compiled by Liên Hoàng.
 
-Han Viet dictionary data is pulled from the following sources (manually edited to better handle heteronyms, and abridged to suit the popup format):
+Han Viet dictionary data is pulled from the following sources (manually edited to
+better handle heteronyms, and abridged to suit the popup format):
 
-* Hán Việt Tự Điển Thiều Chửu (http://vietnamtudien.org/thieuchuu/)
+* Hán Việt tự điển, Thiều Chửu, Hà Nội, 1942 (http://vietnamtudien.org/thieuchuu/)
+
+* Từ điển Hán Việt, Trần Văn Chánh, NXB Trẻ, TP Hồ Chí Minh, 1999
+
+* Cơ sở dữ liệu Unihan do tổ chức Unicode ban hành
 
 * Tự Điển Chữ Nôm (http://nomfoundation.org)
 
