@@ -239,37 +239,6 @@ function onKeyDown(keyDown) {
         //     }
         //     break;
 
-        case 84: // 't'
-            {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
-
-                // https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=%E8%BF%9B%E8%A1%8C
-                let tatoeba = 'https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=' + sel;
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'tatoeba',
-                    url: tatoeba
-                });
-            }
-            break;
-
-        case 86: // 'v'
-            if (config.vocab !== 'no' && savedSearchResults.vocab) {
-                let sel = encodeURIComponent(window.getSelection().toString());
-
-                // https://resources.allsetlearning.com/chinese/vocabulary/%E4%B8%AA
-                let allset = 'https://resources.allsetlearning.com/chinese/vocabulary/' + sel;
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'vocab',
-                    url: allset
-                });
-            }
-            break;
-
         case 88: // 'x'
             altView = 0;
             popY -= 20;
@@ -285,6 +254,21 @@ function onKeyDown(keyDown) {
         case 49: // '1'
             if (keyDown.altKey) {
 
+                // https://www.zdic.net/hans/%E4%B8%AD%E6%96%87
+                let zdic = 'https://www.zdic.net/hans/' + sel;
+
+                chrome.runtime.sendMessage({
+                    type: 'open',
+                    url: zdic
+                });
+            }
+            break;
+
+        case 50: // '2'
+            if (keyDown.altKey) {
+                let sel = encodeURIComponent(
+                    window.getSelection().toString());
+
                 // https://www.moedict.tw/~%E4%B8%AD%E6%96%87
                 let moedict = 'https://www.moedict.tw/~' + sel;
 
@@ -295,98 +279,17 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        case 50: // '2'
-            if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
-
-                // https://forvo.com/search/%E4%B8%AD%E6%96%87/zh/
-                var forvo = 'https://forvo.com/search/' + sel + '/zh/';
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'forvo',
-                    url: forvo
-                });
-            }
-            break;
-
         case 51: // '3'
             if (keyDown.altKey) {
                 let sel = encodeURIComponent(
                     window.getSelection().toString());
 
-                // https://dict.cn/%E7%BF%BB%E8%AF%91
-                let dictcn = 'https://dict.cn/' + sel;
+                // https://hvdic.thivien.net/whv/%E7%BF%BB%E8%AF%91
+                let hvdic = 'https://hvdic.thivien.net/whv/' + sel;
 
                 chrome.runtime.sendMessage({
                     type: 'open',
-                    tabType: 'dictcn',
-                    url: dictcn
-                });
-            }
-            break;
-
-        case 52: // '4'
-            if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
-
-                // https://www.iciba.com/%E4%B8%AD%E9%A4%90
-                let iciba = 'https://www.iciba.com/' + sel;
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'iciba',
-                    url: iciba
-                });
-            }
-            break;
-
-        case 53: // '5'
-            if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
-
-                // https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=%E4%B8%AD%E6%96%87
-                let mdbg = 'https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb=' + sel;
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'mdbg',
-                    url: mdbg
-                });
-            }
-            break;
-
-        case 54: // '6'
-            if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
-
-                let reverso = 'https://context.reverso.net/translation/chinese-english/' + sel;
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'reverso',
-                    url: reverso
-                });
-            }
-            break;
-
-        case 55: // '7'
-            if (keyDown.altKey) {
-
-                // use the traditional character for moedict lookup
-                let trad = savedSearchResults[0][1];
-
-                // https://www.moedict.tw/~%E4%B8%AD%E6%96%87
-                let moedict = 'https://www.moedict.tw/~' + encodeURIComponent(trad);
-
-                chrome.runtime.sendMessage({
-                    type: 'open',
-                    tabType: 'moedict',
-                    url: moedict
+                    url: hvdic
                 });
             }
             break;
@@ -1104,13 +1007,9 @@ let miniHelp = `
     Tra từ này trên các từ điển khác:
     <table style="margin: 10px;" cellspacing=5 cellpadding=5>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>Alt + 1 :</b></td><td>&nbsp;LINE Dict</td></tr>
-    <tr><td><b>Alt + 2 :</b></td><td>&nbsp;Forvo</td></tr>
-    <tr><td><b>Alt + 3 :</b></td><td>&nbsp;Dict.cn</td></tr>
-    <tr><td><b>Alt + 4&nbsp;:</b></td><td>&nbsp;iCIBA</td></tr>
-    <tr><td><b>Alt + 5&nbsp;:</b></td><td>&nbsp;MDBG</td></tr>
-    <tr><td><b>Alt + 6&nbsp;:</b></td><td>&nbsp;Reverso</td></tr>
-    <tr><td><b>Alt + 7&nbsp;:</b></td><td>&nbsp;MoE Dict</td></tr>
+    <tr><td><b>Alt + 1 :</b></td><td>&nbsp;zdic.net Handian</td></tr>
+    <tr><td><b>Alt + 2 :</b></td><td>&nbsp;Taiwan MoE Dict</td></tr>
+    <tr><td><b>Alt + 3 :</b></td><td>&nbsp;Thi Viện Hvdic</td></tr>
     </table>`;
 
 // event listener
