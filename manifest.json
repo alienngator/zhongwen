@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "HanViet: Từ Điển Hán Việt",
   "short_name": "HanViet",
   "version": "1.2.0",
