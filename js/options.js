@@ -25,8 +25,8 @@ function loadVals() {
     const simpTrad = localStorage['simpTrad'] || 'classic';
     document.querySelector(`input[name="simpTrad"][value="${simpTrad}"]`).checked = true;
 
-    const zhuyin = localStorage['zhuyin'] || 'no';
-    document.querySelector('#zhuyin').checked = zhuyin === 'yes';
+    // const zhuyin = localStorage['zhuyin'] || 'no';
+    // document.querySelector('#zhuyin').checked = zhuyin === 'yes';
 
     const grammar = localStorage['grammar'] || 'yes';
     document.querySelector('#grammar').checked = grammar !== 'no';
@@ -87,8 +87,8 @@ window.addEventListener('load', () => {
             () => setOption('simpTrad', input.getAttribute('value')));
     });
 
-    document.querySelector('#zhuyin').addEventListener('change',
-        (event) => setBooleanOption('zhuyin', event.target.checked));
+    // document.querySelector('#zhuyin').addEventListener('change',
+    //     (event) => setBooleanOption('zhuyin', event.target.checked));
 
     document.querySelector('#grammar').addEventListener('change',
         (event) => setBooleanOption('grammar', event.target.checked));
