@@ -210,7 +210,7 @@ function onKeyDown(keyDown) {
         //         'entries': entries
         //     });
 
-        //     showPopup('Added to word list.<p>Press Alt+W to open word list.', null, -1, -1);
+        //     showPopup('Đã thêm vào danh sách từ vựng.<p>Nhấn Alt+W để mở danh sách từ vựng.', null, -1, -1);
         // }
         //     break;
 
@@ -285,17 +285,12 @@ function onKeyDown(keyDown) {
         case 49: // '1'
             if (keyDown.altKey) {
 
-                // use the simplified character for linedict lookup
-                let simp = savedSearchResults[0][0];
-
-                // https://english.dict.naver.com/english-chinese-dictionary/#/search?query=%E8%AF%8D%E5%85%B8
-                let linedict = 'https://english.dict.naver.com/english-chinese-dictionary/#/search?query=' +
-                    encodeURIComponent(simp);
+                // https://www.moedict.tw/~%E4%B8%AD%E6%96%87
+                let moedict = 'https://www.moedict.tw/~' + sel;
 
                 chrome.runtime.sendMessage({
                     type: 'open',
-                    tabType: 'linedict',
-                    url: linedict
+                    url: moedict
                 });
             }
             break;
@@ -967,18 +962,7 @@ function makeHtml(result, showToneColors) {
 
         // Grammar
         if (config.grammar !== 'no' && result.grammar && result.grammar.index === i) {
-            html += '<br><span class="grammar">Press "g" for grammar and usage notes.</span><br>';
-            addFinalBr = true;
-        }
-
-        // Vocab
-        if (config.vocab !== 'no' && result.vocab && result.vocab.index === i) {
-            html += '<br><span class="vocab">Press "v" for vocabulary notes.</span><br>';
-            addFinalBr = true;
-        }
-
-        if (addFinalBr) {
-            html += '<br>';
+            html += '<br><span class="grammar">Nhấn "g" để xem thêm chú thích ngữ pháp.</span><br><br>';
         }
 
         texts[i] = [entry[2], entry[1], p[1], enDef, entry[3]];
@@ -1103,21 +1087,21 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
     }
     return [html, text, zhuyin];
 }
-
+// TODO: change shortcuts, copy translation to clipboard, skritter
 let miniHelp = `
-    <span style="font-weight: bold;">Zhongwen Chinese-English Dictionary</span><br><br>
-    <p>Keyboard shortcuts:<p>
+    <span style="font-weight: bold;">Từ điển Hán-Việt-Anh</span><br><br>
+    <p>Phím tắt:<p>
     <table style="margin: 10px;" cellspacing=5 cellpadding=5>
-    <tr><td><b>n&nbsp;:</b></td><td>&nbsp;Next word</td></tr>
-    <tr><td><b>b&nbsp;:</b></td><td>&nbsp;Previous character</td></tr>
-    <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Next character</td></tr>
+    <tr><td><b>n&nbsp;:</b></td><td>&nbsp;Nhảy sang cụm từ kế tiếp</td></tr>
+    <tr><td><b>b&nbsp;:</b></td><td>&nbsp;Chuyển về Hán tự trước</td></tr>
+    <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Chuyển đến Hán tự sau</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Alternate pop-up location</td></tr>
-    <tr><td><b>y&nbsp;:</b></td><td>&nbsp;Move pop-up location down</td></tr>
-    <tr><td><b>x&nbsp;:</b></td><td>&nbsp;Move pop-up location up</td></tr>
+    <tr><td><b>x&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
+    <tr><td><b>y&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
+    <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Đổi vị trí (cố định ở góc hay linh động)</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     </table>
-    Look up selected text in online resources:
+    Tra từ này trên các từ điển khác:
     <table style="margin: 10px;" cellspacing=5 cellpadding=5>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>Alt + 1 :</b></td><td>&nbsp;LINE Dict</td></tr>
@@ -1127,8 +1111,6 @@ let miniHelp = `
     <tr><td><b>Alt + 5&nbsp;:</b></td><td>&nbsp;MDBG</td></tr>
     <tr><td><b>Alt + 6&nbsp;:</b></td><td>&nbsp;Reverso</td></tr>
     <tr><td><b>Alt + 7&nbsp;:</b></td><td>&nbsp;MoE Dict</td></tr>
-    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>t&nbsp;:</b></td><td>&nbsp;Tatoeba</td></tr>
     </table>`;
 
 // event listener
