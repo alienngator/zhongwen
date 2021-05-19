@@ -33,7 +33,7 @@ Link để tải về:
 
 
 ## Hướng dẫn cài đặt
-Video hướng dẫn: [link Youtube](https://youtu.be/z-9XPgWycpk).
+Video hướng dẫn: [link Youtube](https://youtu.be/NkymZ4S54-I).
 1. Cài extension từ [Chrome Web Store](https://chrome.google.com/webstore/detail/gilnapfdconbpkkigjdedkcilaalfnjb/).
 2. Sau khi cài, bạn sẽ thấy biểu tượng Hanviet (HV) trên thanh công cụ. Nhấn vào để bật (Sẽ thấy nút đỏ 'ON').
 3. Ứng dụng sẽ tự động chạy trên những trang mới mở. Trang đã mở sẵn thì cần load lại.
