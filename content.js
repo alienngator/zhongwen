@@ -239,13 +239,13 @@ function onKeyDown(keyDown) {
         //     }
         //     break;
 
-        case 88: // 'x'
+        case 73: // 'i'
             altView = 0;
             popY -= 20;
             triggerSearch();
             break;
 
-        case 89: // 'y'
+        case 74: // 'j'
             altView = 0;
             popY += 20;
             triggerSearch();
