@@ -35,10 +35,16 @@ Link để tải về:
 ## Hướng dẫn cài đặt
 Video hướng dẫn: [link Youtube](https://youtu.be/z-9XPgWycpk).
 1. Cài extension từ [Chrome Web Store](https://chrome.google.com/webstore/detail/gilnapfdconbpkkigjdedkcilaalfnjb/).
-2. Sau khi cài, bạn sẽ thấy biểu tưởng Hanviet (HV) trên thanh công cụ. Nhấn vào để bật (Sẽ thấy nút đỏ 'ON').
+2. Sau khi cài, bạn sẽ thấy biểu tượng Hanviet (HV) trên thanh công cụ. Nhấn vào để bật (Sẽ thấy nút đỏ 'ON').
 3. Ứng dụng sẽ tự động chạy trên những trang mới mở. Trang đã mở sẵn thì cần load lại.
    (Nếu bạn không thấy ô định nghĩa hiện ra thì thử tắt trình duyệt rồi bật lại nhé.)
 4. Khi không dùng, nhấn vào biểu tượng trên thanh công cụ để tắt.
+
+
+## Góp ý
+Trong quá trình xây dựng khó tránh khỏi sai sót. Các bạn vui lòng gửi góp ý đến lienhoangdev@gmail.com nhé.
+Ứng dụng hoàn toàn phi lợi nhuận, làm vì nhu cầu sử dụng cá nhân nên phản hồi chậm trễ, mong mọi người thông cảm.
+Chúc các bạn học tiếng Trung vui vẻ 😄😄
 
 
 ## Legal
