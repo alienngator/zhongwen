@@ -16,11 +16,12 @@ Link để tải về:
 - Hỗ trợ tra cứu cả phồn thể và giản thể.
 - Hiển thị bính âm, phiên âm, định nghĩa bằng tiếng Việt và nghĩa tiếng Anh.
 - Nguồn từ điển:
-    - Nguồn Hán-Việt: Tổng hợp từ nhiều nguồn uy tín. Extension developer có biên tập
-      lại để hiển thị các nghĩa của Hán tự đa âm tiết rõ ràng hơn.
+    - Nguồn Hán-Việt: Tổng hợp từ nhiều nguồn uy tín. Extension developer có xử lý và biên tập
+      dữ liệu để hiển thị các nghĩa của Hán tự đa âm tiết rõ ràng hơn.
       - Hán Việt tự điển, Thiều Chửu, Hà Nội, 1942.
+      - Hán Việt Từ Điển Trích Dẫn Edition Paris © DTK 2006-2020.
       - Từ điển Hán Việt, Trần Văn Chánh, NXB Trẻ, TP Hồ Chí Minh, 1999.
-      - Cơ sở dữ liệu Unihan do tổ chức Unicode ban hành.
+      - Cơ sở dữ liệu Unihan của Unicode.
       - Tự Điển Chữ Nôm (http://nomfoundation.org).
     - Nguồn Hán-Anh: [CEDICT](https://cc-cedict.org/wiki) Chinese English dictionary.
     - Ngoài ra tiện ích cũng hộ trợ tra chéo trên nhiều từ điển trực tuyến uy tín:
