@@ -1000,8 +1000,8 @@ let miniHelp = `
     <tr><td><b>b&nbsp;:</b></td><td>&nbsp;Chuyển về Hán tự trước</td></tr>
     <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Chuyển đến Hán tự sau</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
-    <tr><td><b>x&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
-    <tr><td><b>y&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
+    <tr><td><b>i&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
+    <tr><td><b>j&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
     <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Đổi vị trí (cố định ở góc hay linh động)</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     </table>
