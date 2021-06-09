@@ -65,6 +65,7 @@ let zhongwenOptions = window.zhongwenOptions = {
     grammar: localStorage['grammar'] || 'yes',
     vocab: localStorage['vocab'] || 'yes',
     simpTrad: localStorage['simpTrad'] || 'classic',
+    mode: localStorage['mode'] || 'passive',
     toneColorScheme: localStorage['toneColorScheme'] || 'standard'
 };
 

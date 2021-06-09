@@ -315,89 +315,91 @@ function onKeyDown(keyDown) {
 }
 
 function onMouseMove(mouseMove) {
-    if (mouseMove.target.nodeName === 'TEXTAREA' || mouseMove.target.nodeName === 'INPUT'
-        || mouseMove.target.nodeName === 'DIV') {
+    if (config.mode === 'passive' || mouseMove.shiftKey) {
+        if (mouseMove.target.nodeName === 'TEXTAREA' || mouseMove.target.nodeName === 'INPUT'
+            || mouseMove.target.nodeName === 'DIV') {
 
-        let div = document.getElementById('zhongwenDiv');
+            let div = document.getElementById('zhongwenDiv');
 
-        if (mouseMove.altKey) {
+            if (mouseMove.altKey) {
 
-            if (!div && (mouseMove.target.nodeName === 'TEXTAREA' || mouseMove.target.nodeName === 'INPUT')) {
+                if (!div && (mouseMove.target.nodeName === 'TEXTAREA' || mouseMove.target.nodeName === 'INPUT')) {
 
-                div = makeDiv(mouseMove.target);
-                document.body.appendChild(div);
-                div.scrollTop = mouseMove.target.scrollTop;
-                div.scrollLeft = mouseMove.target.scrollLeft;
+                    div = makeDiv(mouseMove.target);
+                    document.body.appendChild(div);
+                    div.scrollTop = mouseMove.target.scrollTop;
+                    div.scrollLeft = mouseMove.target.scrollLeft;
+                }
+            } else {
+                if (div) {
+                    document.body.removeChild(div);
+                }
             }
-        } else {
-            if (div) {
-                document.body.removeChild(div);
+        }
+
+        if (clientX && clientY) {
+            if (mouseMove.clientX === clientX && mouseMove.clientY === clientY) {
+                return;
             }
         }
-    }
+        clientX = mouseMove.clientX;
+        clientY = mouseMove.clientY;
 
-    if (clientX && clientY) {
-        if (mouseMove.clientX === clientX && mouseMove.clientY === clientY) {
+        let range;
+        let rangeNode;
+        let rangeOffset;
+
+        // Handle Chrome and Firefox
+        if (document.caretRangeFromPoint) {
+            range = document.caretRangeFromPoint(mouseMove.clientX, mouseMove.clientY);
+            if (range === null) {
+                return;
+            }
+            rangeNode = range.startContainer;
+            rangeOffset = range.startOffset;
+        } else if (document.caretPositionFromPoint) {
+            range = document.caretPositionFromPoint(mouseMove.clientX, mouseMove.clientY);
+            if (range === null) {
+                return;
+            }
+            rangeNode = range.offsetNode;
+            rangeOffset = range.offset;
+        }
+
+        if (mouseMove.target === savedTarget) {
+            if (rangeNode === savedRangeNode && rangeOffset === savedRangeOffset) {
+                return;
+            }
+        }
+
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+
+        if (rangeNode.data && rangeOffset === rangeNode.data.length) {
+            rangeNode = findNextTextNode(rangeNode.parentNode, rangeNode);
+            rangeOffset = 0;
+        }
+
+        if (!rangeNode || rangeNode.parentNode !== mouseMove.target) {
+            rangeNode = null;
+            rangeOffset = -1;
+        }
+
+        savedTarget = mouseMove.target;
+        savedRangeNode = rangeNode;
+        savedRangeOffset = rangeOffset;
+
+        selStartDelta = 0;
+        selStartIncrement = 1;
+
+        if (rangeNode && rangeNode.data && rangeOffset < rangeNode.data.length) {
+            popX = mouseMove.clientX;
+            popY = mouseMove.clientY;
+            timer = setTimeout(() => triggerSearch(), 50);
             return;
         }
-    }
-    clientX = mouseMove.clientX;
-    clientY = mouseMove.clientY;
-
-    let range;
-    let rangeNode;
-    let rangeOffset;
-
-    // Handle Chrome and Firefox
-    if (document.caretRangeFromPoint) {
-        range = document.caretRangeFromPoint(mouseMove.clientX, mouseMove.clientY);
-        if (range === null) {
-            return;
-        }
-        rangeNode = range.startContainer;
-        rangeOffset = range.startOffset;
-    } else if (document.caretPositionFromPoint) {
-        range = document.caretPositionFromPoint(mouseMove.clientX, mouseMove.clientY);
-        if (range === null) {
-            return;
-        }
-        rangeNode = range.offsetNode;
-        rangeOffset = range.offset;
-    }
-
-    if (mouseMove.target === savedTarget) {
-        if (rangeNode === savedRangeNode && rangeOffset === savedRangeOffset) {
-            return;
-        }
-    }
-
-    if (timer) {
-        clearTimeout(timer);
-        timer = null;
-    }
-
-    if (rangeNode.data && rangeOffset === rangeNode.data.length) {
-        rangeNode = findNextTextNode(rangeNode.parentNode, rangeNode);
-        rangeOffset = 0;
-    }
-
-    if (!rangeNode || rangeNode.parentNode !== mouseMove.target) {
-        rangeNode = null;
-        rangeOffset = -1;
-    }
-
-    savedTarget = mouseMove.target;
-    savedRangeNode = rangeNode;
-    savedRangeOffset = rangeOffset;
-
-    selStartDelta = 0;
-    selStartIncrement = 1;
-
-    if (rangeNode && rangeNode.data && rangeOffset < rangeNode.data.length) {
-        popX = mouseMove.clientX;
-        popY = mouseMove.clientY;
-        timer = setTimeout(() => triggerSearch(), 50);
-        return;
     }
 
     // Don't close just because we moved from a valid pop-up slightly over to a place with nothing.
