@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "HanViet: Từ Điển Hán Việt",
   "short_name": "HanViet",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/alienngator/zhongwen",
   "description": "Từ điển Hán-Việt-Anh. Tiện ích tra từ nhanh cho trình duyệt Chromium.",
