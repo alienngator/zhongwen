@@ -323,6 +323,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
         }
             break;
 
+        case 'speak': {
+            console.log("speaking..." + request.text);
+            chrome.tts.speak(request.text, {'lang': 'zh-CN', rate: 0.9});
+        }
+            break;
+
         case 'copy': {
             let txt = document.createElement('textarea');
             txt.style.position = "absolute";

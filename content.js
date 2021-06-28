@@ -159,6 +159,13 @@ function onKeyDown(keyDown) {
         }
             break;
 
+        case 70: // 'f'
+            chrome.runtime.sendMessage({
+                type: 'speak',
+                text: selText
+            });
+            break;
+
         case 71: // 'g'
             if (config.grammar !== 'no' && savedSearchResults.grammar) {
                 let sel = encodeURIComponent(window.getSelection().toString());
@@ -1016,6 +1023,8 @@ let miniHelp = `
     <tr><td><b>n&nbsp;:</b></td><td>&nbsp;Nhảy sang cụm từ kế tiếp</td></tr>
     <tr><td><b>b&nbsp;:</b></td><td>&nbsp;Chuyển về Hán tự trước</td></tr>
     <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Chuyển đến Hán tự sau</td></tr>
+    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
+    <tr><td><b>f&nbsp;:</b></td><td>&nbsp;Phát âm cụm từ</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>i&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
     <tr><td><b>j&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
