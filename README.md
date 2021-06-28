@@ -14,6 +14,7 @@ Link để tải về:
 
 ## Tính năng chính
 - Hỗ trợ tra cứu cả phồn thể và giản thể.
+- Phát âm cụm từ bằng tiếng phổ thông (Đại Lục, Đài Loan) hoặc tiếng Quảng (Hồng Kông).
 - Hiển thị bính âm, phiên âm, định nghĩa bằng tiếng Việt và nghĩa tiếng Anh.
 - Nguồn từ điển:
     - Nguồn Hán-Việt: Tổng hợp từ nhiều nguồn uy tín. Extension developer có xử lý và biên tập
