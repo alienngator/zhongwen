@@ -65,6 +65,7 @@ let zhongwenOptions = window.zhongwenOptions = {
     grammar: localStorage['grammar'] || 'yes',
     vocab: localStorage['vocab'] || 'yes',
     simpTrad: localStorage['simpTrad'] || 'classic',
+    lang: localStorage['lang'] || 'zh-CN',
     mode: localStorage['mode'] || 'passive',
     toneColorScheme: localStorage['toneColorScheme'] || 'standard'
 };
@@ -323,10 +324,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
         }
             break;
 
-        case 'speak': {
-            console.log("speaking..." + request.text);
-            chrome.tts.speak(request.text, {'lang': 'zh-CN', rate: 0.9});
-        }
+        case 'speak': 
+            chrome.tts.speak(request.text, {'lang': zhongwenOptions.lang, rate: 0.9});
             break;
 
         case 'copy': {

@@ -25,6 +25,9 @@ function loadVals() {
     const simpTrad = localStorage['simpTrad'] || 'classic';
     document.querySelector(`input[name="simpTrad"][value="${simpTrad}"]`).checked = true;
 
+    const lang = localStorage['lang'] || 'zh-CN';
+    document.querySelector(`input[name="lang"][value="${lang}"]`).checked = true;
+
     const mode = localStorage['mode'] || 'passive';
     document.querySelector(`input[name="mode"][value="${mode}"]`).checked = true;
 
@@ -85,6 +88,11 @@ window.addEventListener('load', () => {
     document.querySelectorAll('input[name="simpTrad"]').forEach((input) => {
         input.addEventListener('change',
             () => setOption('simpTrad', input.getAttribute('value')));
+    });
+
+    document.querySelectorAll('input[name="lang"]').forEach((input) => {
+        input.addEventListener('change',
+            () => setOption('lang', input.getAttribute('value')));
     });
 
     document.querySelectorAll('input[name="mode"]').forEach((input) => {
