@@ -7,7 +7,7 @@
   "homepage_url": "https://github.com/alienngator/zhongwen",
   "description": "Tiện ích tra từ nhanh cho trình duyệt Chromium (Chrome, Cốc Cốc...). Công cụ học tiếng Trung.",
   "icons": {
-ani    "16": "images/hanviet16.png",
+    "16": "images/hanviet16.png",
     "48": "images/hanviet48.png",
     "128": "images/hanviet128.png"
   },
