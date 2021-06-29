@@ -1,25 +1,28 @@
 {
-  "name": "zhongwen",
-  "version": "5.8.0",
-  "description": "Chinese Pop-Up Dictionary",
+  "name": "hanviet",
+  "version": "1.5.2",
+  "description": "Từ Điển Hán Việt Popup",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cschiller/zhongwen.git"
+    "url": "git+https://github.com/alienngator/zhongwen.git"
   },
   "keywords": [
-    "Chinese",
+    "Hán",
+    "Trung"
+    "Việt",
+    "từ điển",
     "Dictionary"
   ],
-  "author": "Christian Schiller",
+  "author": "Christian Schiller, Lien Hoang", 
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/cschiller/zhongwen/issues"
+    "url": "https://github.com/alienngator/zhongwen/issues"
   },
-  "homepage": "https://github.com/cschiller/zhongwen#readme",
+  "homepage": "https://github.com/alienngator/zhongwen#readme",
   "devDependencies": {
-    "eslint": "^5.15.0",
-    "stylelint": "^9.10.1",
-    "stylelint-config-recommended": "^2.1.0"
+    "eslint": "^7.16.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recommended": "^3.0.0"
   },
   "stylelint": {
     "extends": "stylelint-config-recommended"

@@ -1,4 +1,26 @@
-### Contributors
+### Hanviet credits
+
+The code for the Hanviet Chrome extension was forked almost verbatim from the
+popular Zhongwen extension by Christian Schiller (original credits below).
+
+UI adapted for Vietnamese and Han Viet dictionary data compiled by Liên Hoàng.
+
+Han Viet dictionary data is pulled from the following sources (manually edited to
+better handle heteronyms, and abridged to suit the popup format):
+
+* Hán Việt tự điển, Thiều Chửu, Hà Nội, 1942 (http://vietnamtudien.org/thieuchuu/)
+
+* Hán Việt Từ Điển Trích Dẫn Edition Paris © DTK 2006-2020 (http://www.vanlangsj.org/hanviet/) --
+  được sự cho phép của chú Đặng Thế Kiệt.
+
+* [Đang xử lý] Cơ sở dữ liệu Unihan của Unicode
+
+* [Đang xử lý] Tự Điển Chữ Nôm (http://nomfoundation.org)
+
+Font used in icons: UTM Thư pháp Thiên Ân, designed by Đinh Kiên.
+
+
+### Zhongwen credits
 
 The Zhongwen Chrome extension was written by Christian Schiller with
 contributions from the following people:
