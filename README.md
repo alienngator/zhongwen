@@ -21,13 +21,12 @@ Link để tải về:
       dữ liệu để hiển thị các nghĩa của Hán tự đa âm tiết rõ ràng hơn.
       - Hán Việt tự điển, Thiều Chửu, Hà Nội, 1942.
       - Hán Việt Từ Điển Trích Dẫn Edition Paris © DTK 2006-2020 (được sự cho phép của chú Đặng Thế Kiệt).
-      - [Đang xử lý]  Cơ sở dữ liệu Unihan của Unicode.
-      - [Đang xử lý]  Tự Điển Chữ Nôm (http://nomfoundation.org).
     - Nguồn Hán-Anh: [CEDICT](https://cc-cedict.org/wiki) Chinese English dictionary.
     - Ngoài ra tiện ích cũng hộ trợ tra chéo trên nhiều từ điển trực tuyến uy tín:
         - zdic.net Hán điển (https://www.zdic.net/).
         - MOEdict của Bộ Giáo dục Đài Loan (https://www.moedict.tw/).
         - hvdic của Thi Viện (https://hvdic.thivien.net/whv).
+        - Baidu (https://baike.baidu.com): thích hợp tra tên riêng, ngôn ngữ mạng vv.
 - Dễ dàng bật/tắt ứng dụng chỉ với một cú click chuột. Dễ dàng tra từ bằng cách
   di chuột qua mặt chữ, không cần nhấn, không cần mở tab khác.
 - Có phím tắt để nhảy đến cụm từ tiếp theo, Hán tự trước và sau.
