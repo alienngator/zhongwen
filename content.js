@@ -306,12 +306,13 @@ function onKeyDown(keyDown) {
                 let sel = encodeURIComponent(
                     window.getSelection().toString());
 
-                // https://dict.baidu.com/s?wd=%E7%BF%BB%E8%AF%91
-                let hvdic = 'https://dict.baidu.com/s?wd=' + sel;
+                // https://baike.baidu.com/item/%E7%BF%BB%E8%AF%91
+                let baidu = 'https://baike.baidu.com/item/' + sel;
 
                 chrome.runtime.sendMessage({
                     type: 'open',
-                    url: hvdic
+                    tabType: 'baidu',
+                    url: baidu
                 });
             }
             break;
@@ -1037,7 +1038,7 @@ let miniHelp = `
     <tr><td><b>Alt + 1 :</b></td><td>&nbsp;zdic.net Handian</td></tr>
     <tr><td><b>Alt + 2 :</b></td><td>&nbsp;Taiwan MoE Dict</td></tr>
     <tr><td><b>Alt + 3 :</b></td><td>&nbsp;Thi Viện Hvdic</td></tr>
-    <tr><td><b>Alt + 4 :</b></td><td>&nbsp;Baidu Hanyu</td></tr>
+    <tr><td><b>Alt + 4 :</b></td><td>&nbsp;Baidu (tra tên riêng, ngôn ngữ mạng)</td></tr>
     </table>`;
 
 // event listener
