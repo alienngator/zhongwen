@@ -11,7 +11,7 @@ export class Utils {
         const lines = wordDict.split('\n');
         let offset = 0;
         lines.forEach((line, line_num) => {
-            if (line_num >= 34) {
+            if (line_num >= 39) {
                 const data = line.split(' ');
                 const trad = data[0];
                 const smpl = data[1];
