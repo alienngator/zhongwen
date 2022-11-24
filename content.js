@@ -138,9 +138,9 @@ function onKeyDown(keyDown) {
             triggerSearch();
             break;
 
-        // case 67: // 'c'
-        //     copyToClipboard(getTextForClipboard());
-        //     break;
+        case 67: // 'c'
+            copyToClipboard(getTextForClipboard());
+            break;
 
         case 66: // 'b'
         {
@@ -245,6 +245,37 @@ function onKeyDown(keyDown) {
         //         });
         //     }
         //     break;
+
+        // case 84: // 't'
+        //     {
+        //         let sel = encodeURIComponent(
+        //             window.getSelection().toString());
+
+        //         // https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=%E8%BF%9B%E8%A1%8C
+        //         let tatoeba = 'https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=' + sel;
+
+        //         chrome.runtime.sendMessage({
+        //             type: 'open',
+        //             tabType: 'tatoeba',
+        //             url: tatoeba
+        //         });
+        //     }
+        //     break;
+
+        case 86: // 'v'
+            if (config.vocab !== 'no' && savedSearchResults.vocab) {
+                let sel = encodeURIComponent(window.getSelection().toString());
+
+                // https://resources.allsetlearning.com/chinese/vocabulary/%E4%B8%AA
+                let allset = 'https://resources.allsetlearning.com/chinese/vocabulary/' + sel;
+
+                chrome.runtime.sendMessage({
+                    type: 'open',
+                    tabType: 'vocab',
+                    url: allset
+                });
+            }
+            break;
 
         case 73: // 'i'
             altView = 0;
