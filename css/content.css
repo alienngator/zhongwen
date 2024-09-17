@@ -24,7 +24,7 @@
   position: absolute;
   z-index: 999999999;
   border: 1px solid #d0d0d0 !important;
-  padding: 2px 6px 6px;
+  padding: 0 6px 6px;
   background: #e6f4ff;
   top: 5px;
   left: 5px;
@@ -33,17 +33,20 @@
   box-shadow: 10px 10px 5px -5px #999999;
 }
 
-#zhongwen-window b {
+#zhongwen-window b,
+#zhongwen-window .notes {
   font-weight: bold;
+}
+
+#zhongwen-window .w-hanviet,
+#zhongwen-window .w-hanviet-small {
+  margin-left: 0.7em;
+  opacity: 0.6;
 }
 
 #zhongwen-window .w-hanzi {
   font-size: 24px;
   margin-right: 0.7em;
-}
-
-#zhongwen-window .w-hanviet {
-  margin-left: 0.7em;
 }
 
 #zhongwen-window .w-pinyin {
@@ -65,10 +68,6 @@
   margin-right: 0.7em;
 }
 
-#zhongwen-window .w-hanviet-small {
-  margin-left: 0.7em;
-}
-
 #zhongwen-window .w-pinyin-small {
   font-size: 16px;
 }
@@ -81,19 +80,6 @@
 #zhongwen-window .w-zhuyin-small {
   font-family: PMingLiU, 'Apple LiGothic', sans-serif;
   font-size: 12px;
-}
-
-#zhongwen-window .grammar {
-  font-weight: bold;
-}
-
-#zhongwen-window .vocab {
-  font-weight: bold;
-}
-
-#zhongwen-window .w-hanviet,
-#zhongwen-window .w-hanviet-small {
-  opacity: 0.6;
 }
 
 
@@ -109,14 +95,9 @@
   color: #7070e0;
 }
 
-#zhongwen-window.background-yellow .grammar {
+#zhongwen-window.background-yellow .notes {
   color: #00008b;
 }
-
-#zhongwen-window.background-yellow .vocab {
-  color: #00008b;
-}
-
 
 /* Lightblue Background */
 #zhongwen-window.background-lightblue,
@@ -135,11 +116,7 @@
   color: #00b366;
 }
 
-#zhongwen-window.background-lightblue .grammar {
-  color: #00008b;
-}
-
-#zhongwen-window.background-lightblue .vocab {
+#zhongwen-window.background-lightblue .notes {
   color: #00008b;
 }
 
@@ -160,11 +137,7 @@
   color: #c0ffc0;
 }
 
-#zhongwen-window.background-blue .grammar {
-  color: #add8e6;
-}
-
-#zhongwen-window.background-blue .vocab {
+#zhongwen-window.background-blue .notes {
   color: #add8e6;
 }
 
@@ -185,11 +158,7 @@
   color: #20a020;
 }
 
-#zhongwen-window.background-black .grammar {
-  color: #add8e6;
-}
-
-#zhongwen-window.background-black .vocab {
+#zhongwen-window.background-black .notes {
   color: #add8e6;
 }
 
