@@ -118,6 +118,7 @@ $(document).ready(function () {
             { data: 'traditional' },
             { data: 'pinyin' },
             { data: 'zhuyin', visible: showZhuyin },
+            { data: 'hanviet'},
             { data: 'definition' },
             { data: 'notes' },
         ],
@@ -134,6 +135,7 @@ $(document).ready(function () {
             $('#simplified').val(entry.simplified);
             $('#traditional').val(entry.traditional);
             $('#definition').val(entry.definition);
+            $('#hanviet').val(entry.hanviet);
             $('#notes').val(entry.notes === editHtml ? '' : entry.notes);
             $('#rowIndex').val(index);
 
@@ -179,6 +181,8 @@ $(document).ready(function () {
                 content += entry.zhuyin;
                 content += '\t';
             }
+            content += entry.hanviet;
+            content += '\t';
             content += entry.definition;
             content += '\t';
             content += entry.notes.replace(editHtml, '').replace(/[\r\n]/gm, ' ');
