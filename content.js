@@ -319,11 +319,11 @@ function onKeyDown(keyDown) {
 
         case 50: // '2'
             if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
+                // use the traditional character for moedict lookup
+                let trad = savedSearchResults[0][1];
 
                 // https://www.moedict.tw/~%E4%B8%AD%E6%96%87
-                let moedict = 'https://www.moedict.tw/~' + sel;
+                let moedict = 'https://www.moedict.tw/~' + encodeURIComponent(trad);
 
                 chrome.runtime.sendMessage({
                     type: 'open',
