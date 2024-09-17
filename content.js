@@ -128,15 +128,15 @@ function onKeyDown(keyDown) {
         return;
     }
 
-    // if (keyDown.altKey && keyDown.keyCode === 87) {
-    //     // Alt + w
-    //     chrome.runtime.sendMessage({
-    //         type: 'open',
-    //         tabType: 'wordlist',
-    //         url: '/wordlist.html'
-    //     });
-    //     return;
-    // }
+    if (keyDown.altKey && keyDown.keyCode === 87) {
+        // Alt + w
+        chrome.runtime.sendMessage({
+            type: 'open',
+            tabType: 'wordlist',
+            url: '/wordlist.html'
+        });
+        return;
+    }
 
     if (!isVisible()) {
         return;
@@ -210,27 +210,27 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        // case 82: // 'r'
-        // {
-        //     let entries = [];
-        //     for (let j = 0; j < savedSearchResults.length; j++) {
-        //         let entry = {
-        //             simplified: savedSearchResults[j][0],
-        //             traditional: savedSearchResults[j][1],
-        //             pinyin: savedSearchResults[j][2],
-        //             definition: savedSearchResults[j][3]
-        //         };
-        //         entries.push(entry);
-        //     }
+        case 82: // 'r'
+        {
+            let entries = [];
+            for (let j = 0; j < savedSearchResults.length; j++) {
+                let entry = {
+                    simplified: savedSearchResults[j][0],
+                    traditional: savedSearchResults[j][1],
+                    pinyin: savedSearchResults[j][2],
+                    definition: savedSearchResults[j][3]
+                };
+                entries.push(entry);
+            }
 
-        //     chrome.runtime.sendMessage({
-        //         'type': 'add',
-        //         'entries': entries
-        //     });
+            chrome.runtime.sendMessage({
+                'type': 'add',
+                'entries': entries
+            });
 
-        //     showPopup('Đã thêm vào danh sách từ vựng.<p>Nhấn Alt+W để mở danh sách từ vựng.', null, -1, -1);
-        // }
-        //     break;
+            showPopup('Đã thêm vào danh sách từ vựng.<p>Nhấn Alt+W để mở danh sách từ vựng.', null, -1, -1);
+        }
+            break;
 
         // case 83: // 's'
         //     {
@@ -1054,7 +1054,7 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
     }
     return [html, text, zhuyin];
 }
-// TODO: change shortcuts, copy translation to clipboard, skritter
+// TODO: wordlist, skritter
 let miniHelp = `
     <span style="font-weight: bold;">Từ điển Hán-Việt-Anh</span><br><br>
     <p>Phím tắt:<p>
