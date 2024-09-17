@@ -847,15 +847,16 @@ function makeHtml(result, showToneColors) {
         entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
         if (!entry) continue;
 
+        const [full, trad, simp, pinyinSyllables, def] = entry;
         // Parse definition fields, which may or may not include Han Viet data.
         // TODO: Make this part of the regex match, when I'm less sleepy.
-        const defFields = entry[4].split('\t');
+        const defFields = def.split('\t');
         const enDef = defFields[0].slice(0, -1).replace(/\//g, '; ');
         let hanViet, viDef;
-        if (defFields.length > 1) {
+        if (defFields.length > 1 && trad !== prevWord) {
             hanViet = defFields[1];
             viDef = defFields[2].substring(1).replace(/\//g, '<br>');
-            prevWord = entry[1];
+            prevWord = trad;
         }
 
         // Hanzi
@@ -876,9 +877,9 @@ function makeHtml(result, showToneColors) {
             if (config.fontSize === 'small') {
                 hanziClass += '-small';
             }
-            html += '<span class="' + hanziClass + '">' + entry[2] + '</span>&nbsp;';
-            if (entry[1] !== entry[2]) {
-                html += '<span class="' + hanziClass + '">' + entry[1] + '</span>&nbsp;';
+            html += '<span class="' + hanziClass + '">' + simp + '</span>&nbsp;';
+            if (trad !== simp) {
+                html += '<span class="' + hanziClass + '">' + trad + '</span>&nbsp;';
             }
 
         }
@@ -889,7 +890,7 @@ function makeHtml(result, showToneColors) {
         if (config.fontSize === 'small') {
             pinyinClass += '-small';
         }
-        let p = pinyinAndZhuyin(entry[3], showToneColors, pinyinClass);
+        let p = pinyinAndZhuyin(pinyinSyllables, showToneColors, pinyinClass);
         html += p[0];
 
         // Han Viet
@@ -931,7 +932,7 @@ function makeHtml(result, showToneColors) {
             html += '<br>';
         }
 
-        texts[i] = [entry[2], entry[1], p[1], enDef, entry[3]];
+        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables];
     }
     if (result.more) {
         html += '&hellip;<br/>';
