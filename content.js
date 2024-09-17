@@ -1054,7 +1054,7 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
     }
     return [html, text, zhuyin];
 }
-// TODO: wordlist, skritter
+
 let miniHelp = `
     <span style="font-weight: bold;">Từ điển Hán-Việt-Anh</span><br><br>
     <p>Phím tắt:<p>
@@ -1064,6 +1064,10 @@ let miniHelp = `
     <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Chuyển đến Hán tự sau</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>f&nbsp;:</b></td><td>&nbsp;Phát âm cụm từ</td></tr>
+    <tr><td><b>c&nbsp;:</b></td><td>&nbsp;Sao chép vào bảng nhớ</td></tr>
+    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
+    <tr><td><b>l&nbsp;:</b></td><td>&nbsp;Lưu vào Danh sách Từ vựng</td></tr>
+    <tr><td><b>Alt w&nbsp;:</b></td><td>&nbsp;Mở Danh sách Từ vựng bằng tab mới</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>i&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
     <tr><td><b>j&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>

@@ -58,7 +58,7 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create(
         {
             id: 'wordlistMenuItem',
-            title: 'Mở danh sách từ vựng'
+            title: 'Mở Danh sách Từ vựng'
         }, () => {
             if (chrome.runtime.lastError) {
                 // ignore
