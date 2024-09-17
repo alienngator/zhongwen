@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zhongwen Word List</title>
+    <title>Danh sách từ vựng Hanviet</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
@@ -17,13 +17,12 @@
 <body>
 <h1>Danh sách từ vựng Hanviet</h1>
 
-<p>You can select individual rows by clicking on them.
-    Selected rows are highlighted. Selected rows can be saved to a file by clicking on the save button
-    below the table. Selected rows can also be deleted by clicking on the delete button below the table.
+<p>Nhấn vào từng dòng để chọn.
+    Nhấn nút "Lưu" dưới bảng để lưu các dòng được chọn vào file mới.
+    Nhấn nút "Xóa" dưới bảng để xóa các dòng được chọn.
 </p>
 <p>
-    By clicking on the column headers you can sort the rows
-    in ascending or descending order.
+    Nhấn tiêu đề cột để sắp xếp theo thứ tự tăng hoặc giảm dần.
 </p>
 <p>
     <em>Vì lý do kĩ thuật, pop-up Hanviet không chạy được trên trang này.</em>
@@ -36,7 +35,7 @@
         <th>Giản thể</th>
         <th>Phồn thể</th>
         <th>Pinyin</th>
-        <!-- <th>Zhuyin</th> -->
+        <th>Zhuyin</th>
         <th>Định nghĩa</th>
         <th>Ghi chú</th>
     </tr>
@@ -47,21 +46,21 @@
     Bạn chưa lưu từ nào. Có thể lưu từ bằng cách nhấn phím "s" khi pop-up hiện ra.
 </div>
 
-<a hidden id="savelink" download="Zhongwen-Words.txt"></a>
-<button class="btn btn-success" id="saveList">Save selected rows</button>
+<a hidden id="savelink" download="Hanviet-Words.txt"></a>
+<button class="btn btn-success" id="saveList">Lưu các dòng được chọn</button>
 
 <div class="btn-group">
-    <button class="btn btn-secondary" id="selectAll">Select all rows</button>
-    <button class="btn btn-outline-secondary" id="deselectAll">Deselect all rows</button>
+    <button class="btn btn-secondary" id="selectAll">Chọn tất cả các dòng</button>
+    <button class="btn btn-outline-secondary" id="deselectAll">Bỏ chọn tất cả các dòng</button>
 </div>
 
-<button class="btn btn-danger" id="delete">Delete selected rows</button>
+<button class="btn btn-danger" id="delete">Xóa các dòng được chọn</button>
 
 <div class="modal fade" id="editNotes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Notes</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Sửa ghi chú</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -69,27 +68,27 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="simplified" class="col-form-label">Simplified:</label>
+              <label for="simplified" class="col-form-label">Giản thể:</label>
               <input type="text" disabled class="form-control" id="simplified">
             </div>
             <div class="form-group">
-                <label for="traditional" class="col-form-label">Traditional:</label>
+                <label for="traditional" class="col-form-label">Phồn thể:</label>
                 <input type="text" disabled class="form-control" id="traditional">
             </div>
             <div class="form-group">
-                <label for="definition" class="col-form-label">Definition:</label>
+                <label for="definition" class="col-form-label">Định nghĩa:</label>
                 <input type="text" disabled class="form-control" id="definition">
             </div>
             <div class="form-group">
-              <label for="notes" class="col-form-label">Notes:</label>
+              <label for="notes" class="col-form-label">Ghi chú:</label>
               <textarea class="form-control" id="notes"></textarea>
             </div>
             <input type="hidden" id="rowIndex">
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" id="saveNotes" class="btn btn-primary">Save notes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" id="saveNotes" class="btn btn-primary">Lưu ghi chú</button>
         </div>
       </div>
     </div>

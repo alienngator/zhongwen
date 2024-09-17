@@ -10,6 +10,8 @@
 
 const NOTES_COLUMN = 6;
 
+const editHtml = '<i>Sửa</i>';
+
 let wordList;
 
 let showZhuyin;
@@ -38,7 +40,7 @@ chrome.storage.local.get(['wordList', 'zhuyin'], data => {
         entries = wordList;
         entries.forEach(e => {
             e.timestamp = e.timestamp || 0;
-            e.notes = (e.notes || '<i>Edit</i>');
+            e.notes = (e.notes || editHtml);
             e.zhuyin = convert2Zhuyin(e.pinyin);
         });
         // show new entries first
@@ -95,7 +97,7 @@ function copyEntryForSaving(entry) {
     // don't save these atributes
     delete result.id;
     delete result.zhuyin;
-    if (result.notes === '<i>Edit</i>') {
+    if (result.notes === editHtml) {
         delete result.notes;
     }
     return result;
@@ -129,7 +131,7 @@ $(document).ready(function () {
             $('#simplified').val(entry.simplified);
             $('#traditional').val(entry.traditional);
             $('#definition').val(entry.definition);
-            $('#notes').val(entry.notes === '<i>Edit</i>' ? '' : entry.notes);
+            $('#notes').val(entry.notes === editHtml ? '' : entry.notes);
             $('#rowIndex').val(index);
 
             $('#editNotes').modal('show');
@@ -147,7 +149,7 @@ $(document).ready(function () {
     $('#saveNotes').click(() => {
         let entry = entries[$('#rowIndex').val()];
 
-        entry.notes = $('#notes').val() || '<i>Edit</i>';
+        entry.notes = $('#notes').val() || editHtml;
 
         $('#editNotes').modal('hide');
         invalidateRow().draw();
@@ -176,7 +178,7 @@ $(document).ready(function () {
             }
             content += entry.definition;
             content += '\t';
-            content += entry.notes.replace('<i>Edit</i>', '').replace(/[\r\n]/gm, ' ');
+            content += entry.notes.replace(editHtml, '').replace(/[\r\n]/gm, ' ');
             content += '\r\n';
         }
 
