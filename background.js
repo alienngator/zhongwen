@@ -105,12 +105,11 @@ function activateExtension(tabId, showHelp) {
     //     {
     //         title: 'Open word list',
     //         onclick: function () {
-    //             let url = chrome.runtime.getURL('/wordlist.html');
+    //             let url = '/wordlist.html';
     //             let tabID = tabIDs['wordlist'];
     //             if (tabID) {
     //                 chrome.tabs.get(tabID, function (tab) {
-    //                     if (tab && tab.url && (tab.url.substr(-13) === 'wordlist.html')) {
-    //                         chrome.tabs.reload(tabID);
+    //                     if (tab && tab.url && (tab.url.endsWith('wordlist.html'))) {
     //                         chrome.tabs.update(tabID, {
     //                             active: true
     //                         });
@@ -119,7 +118,6 @@ function activateExtension(tabId, showHelp) {
     //                             url: url
     //                         }, function (tab) {
     //                             tabIDs['wordlist'] = tab.id;
-    //                             chrome.tabs.reload(tab.id);
     //                         });
     //                     }
     //                 });
@@ -128,7 +126,6 @@ function activateExtension(tabId, showHelp) {
     //                     { url: url },
     //                     function (tab) {
     //                         tabIDs['wordlist'] = tab.id;
-    //                         chrome.tabs.reload(tab.id);
     //                     }
     //                 );
     //             }
