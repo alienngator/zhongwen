@@ -36,13 +36,13 @@ function loadVals() {
 
     document.querySelector(`input[name="mode"][value="${config.mode}"]`).checked = true;
 
-    // document.querySelector('#zhuyin').checked = config.zhuyin;
+    document.querySelector('#zhuyin').checked = config.zhuyin;
 
     document.querySelector('#grammar').checked = config.grammar;
 
     document.querySelector('#vocab').checked = config.vocab;
 
-    // document.querySelector(`input[name="saveToWordList"][value="${config.saveToWordList}"]`).checked = true;
+    document.querySelector(`input[name="saveToWordList"][value="${config.saveToWordList}"]`).checked = true;
 
     // document.querySelector(`input[name="skritterTLD"][value="${config.skritterTLD}"]`).checked = true;
 }
@@ -96,8 +96,8 @@ window.addEventListener('load', () => {
             () => setOption('mode', input.getAttribute('value')));
     });
 
-    // document.querySelector('#zhuyin').addEventListener('change',
-    //     (event) => setOption('zhuyin', event.target.checked));
+    document.querySelector('#zhuyin').addEventListener('change',
+        (event) => setOption('zhuyin', event.target.checked));
 
     document.querySelector('#grammar').addEventListener('change',
         (event) => setOption('grammar', event.target.checked));
@@ -105,10 +105,10 @@ window.addEventListener('load', () => {
     document.querySelector('#vocab').addEventListener('change',
         (event) => setOption('vocab', event.target.checked));
 
-    // document.querySelectorAll('input[name="saveToWordList"]').forEach((input) => {
-    //     input.addEventListener('change',
-    //         () => setOption('saveToWordList', input.getAttribute('value')));
-    // });
+    document.querySelectorAll('input[name="saveToWordList"]').forEach((input) => {
+        input.addEventListener('change',
+            () => setOption('saveToWordList', input.getAttribute('value')));
+    });
 
     // document.querySelectorAll('input[name="skritterTLD"]').forEach((input) => {
     //     input.addEventListener('change',

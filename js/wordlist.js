@@ -8,7 +8,9 @@
 
 'use strict';
 
-const NOTES_COLUMN = 6;
+const NOTES_COLUMN = 7;
+const EDIT_HTML = '<i>Sửa</i>';
+const EMPTY_PLACEHOLDER = '--';
 
 let wordList;
 
@@ -16,19 +18,20 @@ let showZhuyin;
 
 let entries;
 
-// migration from manifest v2
-chrome.storage.local.get(['wordList', '_wl_migrated'], data => {
-    if (!data._wl_migrated) {
+// migration from manifest v2: unnecessary, because Hanviet disabled this feature
+// before manifest migration.
+// chrome.storage.local.get(['wordList', '_wl_migrated'], data => {
+//     if (!data._wl_migrated) {
 
-        let v2wordlist = localStorage['wordlist'];
-        let migrated = v2wordlist ? JSON.parse(v2wordlist) : [];
+//         let v2wordlist = localStorage['wordlist'];
+//         let migrated = v2wordlist ? JSON.parse(v2wordlist) : [];
 
-        if (data.wordList) {
-            migrated.push(...data.wordList);
-        }
-        chrome.storage.local.set({wordList: migrated, _wl_migrated: true}, () => console.log('wordlist migrated'));
-    }
-});
+//         if (data.wordList) {
+//             migrated.push(...data.wordList);
+//         }
+//         chrome.storage.local.set({wordList: migrated, _wl_migrated: true}, () => console.log('wordlist migrated'));
+//     }
+// });
 
 chrome.storage.local.get(['wordList', 'zhuyin'], data => {
     wordList = data.wordList;
@@ -38,8 +41,9 @@ chrome.storage.local.get(['wordList', 'zhuyin'], data => {
         entries = wordList;
         entries.forEach(e => {
             e.timestamp = e.timestamp || 0;
-            e.notes = (e.notes || '<i>Edit</i>');
+            e.notes = (e.notes || EDIT_HTML);
             e.zhuyin = convert2Zhuyin(e.pinyin);
+            e.hanViet = e.hanViet || EMPTY_PLACEHOLDER;
         });
         // show new entries first
         entries.sort((e1, e2) => e2.timestamp - e1.timestamp);
@@ -95,7 +99,7 @@ function copyEntryForSaving(entry) {
     // don't save these atributes
     delete result.id;
     delete result.zhuyin;
-    if (result.notes === '<i>Edit</i>') {
+    if (result.notes === EDIT_HTML) {
         delete result.notes;
     }
     return result;
@@ -116,9 +120,13 @@ $(document).ready(function () {
             { data: 'traditional' },
             { data: 'pinyin' },
             { data: 'zhuyin', visible: showZhuyin },
+            { data: 'hanViet'},
             { data: 'definition' },
             { data: 'notes' },
-        ]
+        ],
+        language: { 
+            url: 'https://cdn.datatables.net/plug-ins/2.1.6/i18n/vi.json',
+        }
     });
 
     wordsElement.find('tbody').on('click', 'tr', function (event) {
@@ -129,7 +137,8 @@ $(document).ready(function () {
             $('#simplified').val(entry.simplified);
             $('#traditional').val(entry.traditional);
             $('#definition').val(entry.definition);
-            $('#notes').val(entry.notes === '<i>Edit</i>' ? '' : entry.notes);
+            $('#hanViet').val(entry.hanViet);
+            $('#notes').val(entry.notes === EDIT_HTML ? '' : entry.notes);
             $('#rowIndex').val(index);
 
             $('#editNotes').modal('show');
@@ -147,7 +156,7 @@ $(document).ready(function () {
     $('#saveNotes').click(() => {
         let entry = entries[$('#rowIndex').val()];
 
-        entry.notes = $('#notes').val() || '<i>Edit</i>';
+        entry.notes = $('#notes').val() || EDIT_HTML;
 
         $('#editNotes').modal('hide');
         invalidateRow().draw();
@@ -174,9 +183,11 @@ $(document).ready(function () {
                 content += entry.zhuyin;
                 content += '\t';
             }
+            content += entry.hanViet;
+            content += '\t';
             content += entry.definition;
             content += '\t';
-            content += entry.notes.replace('<i>Edit</i>', '').replace(/[\r\n]/gm, ' ');
+            content += entry.notes.replace(EDIT_HTML, '').replace(/[\r\n]/gm, ' ');
             content += '\r\n';
         }
 

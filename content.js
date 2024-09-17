@@ -128,15 +128,15 @@ function onKeyDown(keyDown) {
         return;
     }
 
-    // if (keyDown.altKey && keyDown.keyCode === 87) {
-    //     // Alt + w
-    //     chrome.runtime.sendMessage({
-    //         type: 'open',
-    //         tabType: 'wordlist',
-    //         url: '/wordlist.html'
-    //     });
-    //     return;
-    // }
+    if (keyDown.altKey && keyDown.keyCode === 87) {
+        // Alt + w
+        chrome.runtime.sendMessage({
+            type: 'open',
+            tabType: 'wordlist',
+            url: '/wordlist.html'
+        });
+        return;
+    }
 
     if (!isVisible()) {
         return;
@@ -210,27 +210,28 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        // case 82: // 'r'
-        // {
-        //     let entries = [];
-        //     for (let j = 0; j < savedSearchResults.length; j++) {
-        //         let entry = {
-        //             simplified: savedSearchResults[j][0],
-        //             traditional: savedSearchResults[j][1],
-        //             pinyin: savedSearchResults[j][2],
-        //             definition: savedSearchResults[j][3]
-        //         };
-        //         entries.push(entry);
-        //     }
+        case 76: // 'l'
+        {
+            let entries = [];
+            for (let j = 0; j < savedSearchResults.length; j++) {
+                let entry = {
+                    simplified: savedSearchResults[j][0],
+                    traditional: savedSearchResults[j][1],
+                    pinyin: savedSearchResults[j][2],
+                    definition: savedSearchResults[j][3],
+                    hanViet: savedSearchResults[j][5],
+                };
+                entries.push(entry);
+            }
 
-        //     chrome.runtime.sendMessage({
-        //         'type': 'add',
-        //         'entries': entries
-        //     });
+            chrome.runtime.sendMessage({
+                'type': 'add',
+                'entries': entries
+            });
 
-        //     showPopup('Đã thêm vào danh sách từ vựng.<p>Nhấn Alt+W để mở danh sách từ vựng.', null, -1, -1);
-        // }
-        //     break;
+            showPopup('Đã thêm vào danh sách từ vựng.<p>Nhấn Alt+W để mở danh sách từ vựng.', null, -1, -1);
+        }
+            break;
 
         // case 83: // 's'
         //     {
@@ -318,11 +319,11 @@ function onKeyDown(keyDown) {
 
         case 50: // '2'
             if (keyDown.altKey) {
-                let sel = encodeURIComponent(
-                    window.getSelection().toString());
+                // use the traditional character for moedict lookup
+                let trad = savedSearchResults[0][1];
 
                 // https://www.moedict.tw/~%E4%B8%AD%E6%96%87
-                let moedict = 'https://www.moedict.tw/~' + sel;
+                let moedict = 'https://www.moedict.tw/~' + encodeURIComponent(trad);
 
                 chrome.runtime.sendMessage({
                     type: 'open',
@@ -932,7 +933,7 @@ function makeHtml(result, showToneColors) {
             html += '<br>';
         }
 
-        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables];
+        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables, hanViet || undefined];
     }
     if (result.more) {
         html += '&hellip;<br/>';
@@ -1054,7 +1055,7 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
     }
     return [html, text, zhuyin];
 }
-// TODO: change shortcuts, copy translation to clipboard, skritter
+
 let miniHelp = `
     <span style="font-weight: bold;">Từ điển Hán-Việt-Anh</span><br><br>
     <p>Phím tắt:<p>
@@ -1064,10 +1065,14 @@ let miniHelp = `
     <tr><td><b>m&nbsp;:</b></td><td>&nbsp;Chuyển đến Hán tự sau</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>f&nbsp;:</b></td><td>&nbsp;Phát âm cụm từ</td></tr>
+    <tr><td><b>c&nbsp;:</b></td><td>&nbsp;Sao chép vào bảng nhớ</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     <tr><td><b>i&nbsp;:</b></td><td>&nbsp;Dịch pop-up lên trên</td></tr>
     <tr><td><b>j&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
     <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Đổi vị trí (cố định ở góc hay linh động)</td></tr>
+    <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
+    <tr><td><b>l&nbsp;:</b></td><td>&nbsp;Lưu vào Danh sách Từ vựng</td></tr>
+    <tr><td><b>Alt + w :</b></td><td>&nbsp;Mở Danh sách Từ vựng bằng tab mới</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
     </table>
     Tra từ này trên các từ điển khác:

@@ -55,16 +55,16 @@ let dict;
 
 chrome.runtime.onInstalled.addListener(() => {
 
-    // chrome.contextMenus.create(
-    //     {
-    //         id: 'wordlistMenuItem',
-    //         title: 'Open word list'
-    //     }, () => {
-    //         if (chrome.runtime.lastError) {
-    //             // ignore
-    //         }
-    //     }
-    // );
+    chrome.contextMenus.create(
+        {
+            id: 'wordlistMenuItem',
+            title: 'Mở Danh sách Từ vựng'
+        }, () => {
+            if (chrome.runtime.lastError) {
+                // ignore
+            }
+        }
+    );
 
     chrome.contextMenus.create(
         {
@@ -78,7 +78,7 @@ chrome.runtime.onInstalled.addListener(() => {
     );
 });
 
-// chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
+chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
 
 chrome.contextMenus.onClicked.addListener(helpMenuItemListener);
 
@@ -380,14 +380,7 @@ chrome.runtime.onMessage.addListener(function (message) {
             let saveToWordList = data.saveToWordList || globalThis.defaultConfig.saveToWordList;
 
             for (let i in message.entries) {
-
-                let entry = {};
-                entry.timestamp = Date.now();
-                entry.simplified = message.entries[i].simplified;
-                entry.traditional = message.entries[i].traditional;
-                entry.pinyin = message.entries[i].pinyin;
-                entry.definition = message.entries[i].definition;
-
+                const entry = Object.assign({timestamp: Date.now()}, message.entries[i]);
                 wordList.push(entry);
 
                 if (saveToWordList === 'firstEntryOnly') {
