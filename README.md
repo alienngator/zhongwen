@@ -9,7 +9,7 @@ by Christian Schiller, adapted for Vietnamese by Lien Hoang.
 
 
 Link để tải về:
-[![Chrome](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/gilnapfdconbpkkigjdedkcilaalfnjb/)
+[![Chrome](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chromewebstore.google.com/detail/gilnapfdconbpkkigjdedkcilaalfnjb)
 
 
 ## Tính năng chính
