@@ -120,7 +120,10 @@ $(document).ready(function () {
             { data: 'zhuyin', visible: showZhuyin },
             { data: 'definition' },
             { data: 'notes' },
-        ]
+        ],
+        language: { 
+            url: 'https://cdn.datatables.net/plug-ins/2.1.6/i18n/vi.json',
+        }
     });
 
     wordsElement.find('tbody').on('click', 'tr', function (event) {
