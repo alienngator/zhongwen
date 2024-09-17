@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "HanViet: từ điển Hán Việt, từ điển tiếng Trung",
   "short_name": "HanViet",
-  "version": "1.5.7",
+  "version": "2.0.0",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/alienngator/zhongwen",
   "description": "Tiện ích tra từ nhanh cho trình duyệt Chromium (Chrome, Cốc Cốc...). Công cụ học tiếng Trung.",
@@ -11,12 +11,13 @@
     "48": "images/hanviet48.png",
     "128": "images/hanviet128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "images/hanviet48.png",
     "default_title": "Từ Điển Hán Việt Popup"
   },
   "background": {
-    "page": "background.html"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
@@ -24,6 +25,7 @@
         "<all_urls>"
       ],
       "js": [
+        "js/config.js",
         "js/jquery-3.3.1.min.js",
         "js/zhuyin.js",
         "content.js"
@@ -40,17 +42,13 @@
   },
   "permissions": [
     "contextMenus",
+    "storage",
     "tabs",
     "tts"
   ],
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "description": "Enable/Disable Hanviet"
     }
-  },
-  "web_accessible_resources": [
-    "css/*",
-    "js/*",
-    "images/*"
-  ]
+  }
 }
