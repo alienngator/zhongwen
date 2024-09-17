@@ -55,16 +55,16 @@ let dict;
 
 chrome.runtime.onInstalled.addListener(() => {
 
-    // chrome.contextMenus.create(
-    //     {
-    //         id: 'wordlistMenuItem',
-    //         title: 'Open word list'
-    //     }, () => {
-    //         if (chrome.runtime.lastError) {
-    //             // ignore
-    //         }
-    //     }
-    // );
+    chrome.contextMenus.create(
+        {
+            id: 'wordlistMenuItem',
+            title: 'Mở danh sách từ vựng'
+        }, () => {
+            if (chrome.runtime.lastError) {
+                // ignore
+            }
+        }
+    );
 
     chrome.contextMenus.create(
         {
@@ -78,7 +78,7 @@ chrome.runtime.onInstalled.addListener(() => {
     );
 });
 
-// chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
+chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
 
 chrome.contextMenus.onClicked.addListener(helpMenuItemListener);
 

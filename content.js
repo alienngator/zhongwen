@@ -210,7 +210,7 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        case 82: // 'r'
+        case 76: // 'l'
         {
             let entries = [];
             for (let j = 0; j < savedSearchResults.length; j++) {
