@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "HanViet: từ điển Hán Việt, từ điển tiếng Trung",
+  "name": "HanViet: từ điển Hán Việt",
   "short_name": "HanViet",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Christian Schiller, Liên Hoàng",
   "homepage_url": "https://github.com/alienngator/zhongwen",
   "description": "Tiện ích tra từ nhanh cho trình duyệt Chromium (Chrome, Cốc Cốc...). Công cụ học tiếng Trung.",
@@ -13,7 +13,7 @@
   },
   "action": {
     "default_icon": "images/hanviet48.png",
-    "default_title": "Từ Điển Hán Việt Popup"
+    "default_title": "Từ điển Hán Việt Popup"
   },
   "background": {
     "service_worker": "background.js",
