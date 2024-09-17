@@ -380,7 +380,7 @@ chrome.runtime.onMessage.addListener(function (message) {
             let saveToWordList = data.saveToWordList || globalThis.defaultConfig.saveToWordList;
 
             for (let i in message.entries) {
-                const entry = Object.assign({timestamp: Date.now()}, message.entries);
+                const entry = Object.assign({timestamp: Date.now()}, message.entries[i]);
                 wordList.push(entry);
 
                 if (saveToWordList === 'firstEntryOnly') {

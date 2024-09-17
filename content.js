@@ -220,7 +220,6 @@ function onKeyDown(keyDown) {
                     pinyin: savedSearchResults[j][2],
                     definition: savedSearchResults[j][3],
                     hanViet: savedSearchResults[j][5],
-                    viDef: savedSearchResults[j][6],
                 };
                 entries.push(entry);
             }
@@ -934,7 +933,7 @@ function makeHtml(result, showToneColors) {
             html += '<br>';
         }
 
-        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables, hanViet || undefined, viDef || undefined];
+        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables, hanViet || undefined];
     }
     if (result.more) {
         html += '&hellip;<br/>';
