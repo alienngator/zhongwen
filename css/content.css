@@ -24,7 +24,7 @@
   position: absolute;
   z-index: 999999999;
   border: 1px solid #d0d0d0 !important;
-  padding: 0 6px 6px;
+  padding: 6px;
   background: #e6f4ff;
   top: 5px;
   left: 5px;
@@ -47,6 +47,7 @@
 #zhongwen-window .w-hanzi {
   font-size: 24px;
   margin-right: 0.7em;
+  line-height: 20px;
 }
 
 #zhongwen-window .w-pinyin {
@@ -66,6 +67,7 @@
 #zhongwen-window .w-hanzi-small {
   font-size: 18px;
   margin-right: 0.7em;
+  line-height: 16px;
 }
 
 #zhongwen-window .w-pinyin-small {

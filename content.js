@@ -912,7 +912,8 @@ function makeHtml(result, showToneColors) {
         }
         html += `<br><span class="${defClass}">${viDef || ''}<b>ENG </b>${enDef}</span><br>`;
 
-        let addFinalBr = false;
+        // Add line break if this is NOT the final entry, or if there are grammar/vocab notes.
+        let addFinalBr = (i !== result.data.length - 1);
 
         // Grammar
         if (config.grammar && result.grammar && result.grammar.index === i) {
