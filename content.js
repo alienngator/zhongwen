@@ -916,13 +916,13 @@ function makeHtml(result, showToneColors) {
 
         // Grammar
         if (config.grammar && result.grammar && result.grammar.index === i) {
-            html += '<br><span class="grammar">Nhấn "g" để xem thêm chú thích ngữ pháp.</span><br>';
+            html += '<br><span class="notes">Nhấn "g" để xem thêm chú thích ngữ pháp.</span><br>';
             addFinalBr = true;
         }
 
         // Vocab
         if (config.vocab && result.vocab && result.vocab.index === i) {
-            html += '<br><span class="vocab">Nhấn "v" để xem thêm chú thích từ vựng.</span><br>';
+            html += '<br><span class="notes">Nhấn "v" để xem thêm chú thích từ vựng.</span><br>';
             addFinalBr = true;
         }
 
