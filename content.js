@@ -226,13 +226,13 @@ function onKeyDown(keyDown) {
 
         //         // https://www.skritter.com/vocab/api/add?from=Chrome&lang=zh&word=浏览&trad=瀏 覽&rdng=liú lǎn&defn=to skim over; to browse
 
-        //         let skritter = 'https://legacy.skritter.com';
+        //         let skritter = 'https://skritter.com';
         //         if (config.skritterTLD === 'cn') {
-        //             skritter = 'https://legacy.skritter.cn';
+        //             skritter = 'https://skritter.cn';
         //         }
 
         //         skritter +=
-        //             '/vocab/api/add?from=Zhongwen&siteref=Zhongwen&lang=zh&word=' +
+        //             '/vocab/api/add?from=zhongwen&ref=zhongwen&lang=zh&word=' +
         //             encodeURIComponent(savedSearchResults[0][0]) +
         //             '&trad=' + encodeURIComponent(savedSearchResults[0][1]) +
         //             '&rdng=' + encodeURIComponent(savedSearchResults[0][4]) +
@@ -291,12 +291,15 @@ function onKeyDown(keyDown) {
 
         case 49: // '1'
             if (keyDown.altKey) {
+                let sel = encodeURIComponent(
+                    window.getSelection().toString());
 
                 // https://www.zdic.net/hans/%E4%B8%AD%E6%96%87
                 let zdic = 'https://www.zdic.net/hans/' + sel;
 
                 chrome.runtime.sendMessage({
                     type: 'open',
+                    tabType: 'zdic',
                     url: zdic
                 });
             }
@@ -312,6 +315,7 @@ function onKeyDown(keyDown) {
 
                 chrome.runtime.sendMessage({
                     type: 'open',
+                    tabType: 'moedict',
                     url: moedict
                 });
             }
@@ -327,6 +331,7 @@ function onKeyDown(keyDown) {
 
                 chrome.runtime.sendMessage({
                     type: 'open',
+                    tabType: 'hvdic',
                     url: hvdic
                 });
             }
@@ -336,7 +341,6 @@ function onKeyDown(keyDown) {
             if (keyDown.altKey) {
                 let sel = encodeURIComponent(
                     window.getSelection().toString());
-
                 // https://baike.baidu.com/item/%E7%BF%BB%E8%AF%91
                 let baidu = 'https://baike.baidu.com/item/' + sel;
 
@@ -472,16 +476,13 @@ function triggerSearch() {
 
     let u = rangeNode.data.charCodeAt(selStartOffset);
 
-    let isChineseCharacter = !isNaN(u) && (
-        u === 0x25CB ||
-        (0x3400 <= u && u <= 0x9FFF) ||
-        (0xF900 <= u && u <= 0xFAFF) ||
-        (0xFF21 <= u && u <= 0xFF3A) ||
-        (0xFF41 <= u && u <= 0xFF5A) ||
-        (0xD800 <= u && u <= 0xDFFF)
-    );
-
-    if (!isChineseCharacter) {
+    // not a Chinese character
+    if (isNaN(u) ||
+        (u !== 0x25CB &&
+        (u < 0x3400 || 0x9FFF < u) &&
+        (u < 0xF900 || 0xFAFF < u) &&
+        (u < 0xFF21 || 0xFF3A < u) &&
+        (u < 0xFF41 || 0xFF5A < u))) {
         clearHighlight();
         hidePopup();
         return 3;
@@ -923,6 +924,17 @@ function makeHtml(result, showToneColors) {
         // Grammar
         if (config.grammar !== 'no' && result.grammar && result.grammar.index === i) {
             html += '<br><span class="grammar">Nhấn "g" để xem thêm chú thích ngữ pháp.</span><br><br>';
+            addFinalBr = true;
+        }
+
+        // Vocab
+        if (config.vocab !== 'no' && result.vocab && result.vocab.index === i) {
+            html += '<br><span class="vocab">Nhấn "v" để xem thêm chú thích từ vựng.</span><br>';
+            addFinalBr = true;
+        }
+
+        if (addFinalBr) {
+            html += '<br>';
         }
 
         texts[i] = [entry[2], entry[1], p[1], enDef, entry[3]];
