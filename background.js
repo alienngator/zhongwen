@@ -55,16 +55,16 @@ let dict;
 
 chrome.runtime.onInstalled.addListener(() => {
 
-    chrome.contextMenus.create(
-        {
-            id: 'wordlistMenuItem',
-            title: 'Open word list'
-        }, () => {
-            if (chrome.runtime.lastError) {
-                // ignore
-            }
-        }
-    );
+    // chrome.contextMenus.create(
+    //     {
+    //         id: 'wordlistMenuItem',
+    //         title: 'Open word list'
+    //     }, () => {
+    //         if (chrome.runtime.lastError) {
+    //             // ignore
+    //         }
+    //     }
+    // );
 
     chrome.contextMenus.create(
         {
@@ -78,7 +78,7 @@ chrome.runtime.onInstalled.addListener(() => {
     );
 });
 
-chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
+// chrome.contextMenus.onClicked.addListener(wordlistMenuItemListener);
 
 chrome.contextMenus.onClicked.addListener(helpMenuItemListener);
 
@@ -397,11 +397,13 @@ chrome.runtime.onMessage.addListener(function (message) {
 
             chrome.storage.local.set({wordList});
         });
+
+    } else if (message.type === 'speak') {
+        chrome.storage.local.get(['lang'], data => {
+            const lang = data.lang || globalThis.defaultConfig.lang;
+            chrome.tts.speak(message.text, {lang, rate: 0.9});
+        });
     }
 
-    if (message.type === 'speak') {
-        chrome.tts.speak(request.text, {'lang': zhongwenOptions.lang, rate: 0.9});
-        break;        
-    }
 });
 
