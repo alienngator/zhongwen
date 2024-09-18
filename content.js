@@ -233,30 +233,30 @@ function onKeyDown(keyDown) {
         }
             break;
 
-        // case 83: // 's'
-        //     {
+        case 83: // 's'
+            {
 
-        //         // https://www.skritter.com/vocab/api/add?from=Chrome&lang=zh&word=浏览&trad=瀏 覽&rdng=liú lǎn&defn=to skim over; to browse
+                // https://www.skritter.com/vocab/api/add?from=Chrome&lang=zh&word=浏览&trad=瀏 覽&rdng=liú lǎn&defn=to skim over; to browse
 
-        //         let skritter = 'https://skritter.com';
-        //         if (config.skritterTLD === 'cn') {
-        //             skritter = 'https://skritter.cn';
-        //         }
+                let skritter = 'https://skritter.com';
+                if (config.skritterTLD === 'cn') {
+                    skritter = 'https://skritter.cn';
+                }
 
-        //         skritter +=
-        //             '/vocab/api/add?from=zhongwen&ref=zhongwen&lang=zh&word=' +
-        //             encodeURIComponent(savedSearchResults[0][0]) +
-        //             '&trad=' + encodeURIComponent(savedSearchResults[0][1]) +
-        //             '&rdng=' + encodeURIComponent(savedSearchResults[0][4]) +
-        //             '&defn=' + encodeURIComponent(savedSearchResults[0][3]);
+                skritter +=
+                    '/vocab/api/add?from=zhongwen&ref=zhongwen&lang=zh&word=' +
+                    encodeURIComponent(savedSearchResults[0][0]) +
+                    '&trad=' + encodeURIComponent(savedSearchResults[0][1]) +
+                    '&rdng=' + encodeURIComponent(savedSearchResults[0][4]) +
+                    '&defn=' + encodeURIComponent(savedSearchResults[0][3]);
 
-        //         chrome.runtime.sendMessage({
-        //             type: 'open',
-        //             tabType: 'skritter',
-        //             url: skritter
-        //         });
-        //     }
-        //     break;
+                chrome.runtime.sendMessage({
+                    type: 'open',
+                    tabType: 'skritter',
+                    url: skritter
+                });
+            }
+            break;
 
         // case 84: // 't'
         //     {
