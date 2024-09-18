@@ -14,8 +14,8 @@ Link để tải về:
 
 ## Tính năng chính
 - Hỗ trợ tra cứu cả phồn thể và giản thể.
+- Hiển thị bính âm, phiên âm, chú âm, định nghĩa bằng tiếng Việt và tiếng Anh.
 - Phát âm cụm từ bằng tiếng phổ thông (Đại Lục, Đài Loan) hoặc tiếng Quảng (Hồng Kông).
-- Hiển thị bính âm, phiên âm, định nghĩa bằng tiếng Việt và nghĩa tiếng Anh.
 - Nguồn từ điển uy tín, có chọn lọc:
     - Nguồn Hán-Việt: Tổng hợp từ nhiều nguồn uy tín. Extension developer có xử lý và biên tập
       dữ liệu để hiển thị các nghĩa của Hán tự đa âm tiết rõ ràng hơn.
@@ -28,9 +28,11 @@ Link để tải về:
         - hvdic của Thi Viện (https://hvdic.thivien.net/whv).
         - Baidu (https://baike.baidu.com): thích hợp tra tên riêng, ngôn ngữ mạng vv.
 - Dễ dàng bật/tắt ứng dụng chỉ với một cú click chuột. Dễ dàng tra từ bằng cách
-  di chuột qua mặt chữ, không cần nhấn, không cần mở tab khác.
-- Có phím tắt để nhảy đến cụm từ tiếp theo, Hán tự trước và sau.
-- Dễ dàng tạo danh sách từ vựng để thuận tiện cho việc học.
+  di chuột qua mặt chữ, không cần nhấn, không cần mở tab khác. Có phím tắt để nhảy đến
+  cụm từ tiếp theo, Hán tự trước và sau.
+- Hỗ trợ học từ:
+    - Tạo danh sách từ vựng để thuận tiện cho việc học.
+    - Xuất từ mới sang [Skritter](https://skritter.com).
 
 
 ## Hướng dẫn cài đặt

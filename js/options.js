@@ -44,7 +44,7 @@ function loadVals() {
 
     document.querySelector(`input[name="saveToWordList"][value="${config.saveToWordList}"]`).checked = true;
 
-    // document.querySelector(`input[name="skritterTLD"][value="${config.skritterTLD}"]`).checked = true;
+    document.querySelector(`input[name="skritterTLD"][value="${config.skritterTLD}"]`).checked = true;
 }
 
 function setPopupColor(popupColor) {
@@ -110,9 +110,9 @@ window.addEventListener('load', () => {
             () => setOption('saveToWordList', input.getAttribute('value')));
     });
 
-    // document.querySelectorAll('input[name="skritterTLD"]').forEach((input) => {
-    //     input.addEventListener('change',
-    //         () => setOption('skritterTLD', input.getAttribute('value')));
-    // });
+    document.querySelectorAll('input[name="skritterTLD"]').forEach((input) => {
+        input.addEventListener('change',
+            () => setOption('skritterTLD', input.getAttribute('value')));
+    });
 });
 
