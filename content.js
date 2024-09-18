@@ -1071,6 +1071,7 @@ let miniHelp = `
     <tr><td><b>j&nbsp;:</b></td><td>&nbsp;Dịch pop-up xuống dưới</td></tr>
     <tr><td><b>a&nbsp;:</b></td><td>&nbsp;Đổi vị trí (cố định ở góc hay linh động)</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
+    <tr><td><b>s&nbsp;:</b></td><td>&nbsp;Thêm vào danh sách Skritter</td></tr>
     <tr><td><b>l&nbsp;:</b></td><td>&nbsp;Lưu vào Danh sách Từ vựng</td></tr>
     <tr><td><b>Alt + w :</b></td><td>&nbsp;Mở Danh sách Từ vựng bằng tab mới</td></tr>
     <tr><td><b>&nbsp;</b></td><td>&nbsp;</td></tr>
