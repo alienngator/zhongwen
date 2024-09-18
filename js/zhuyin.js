@@ -424,11 +424,11 @@ const zhuyinMap = {
 };
 
 globalThis.numericPinyin2Zhuyin = function (syllable) {
-    const bpmfChar = zhuyinMap[syllable.substring(0, syllable.length - 1).toLowerCase()];
-    const bpmfTone = zhuyinTones[syllable[syllable.length - 1]];
+    const bpmfChar = syllable.substring(0, syllable.length - 1).toLowerCase();
+    const bpmfTone = syllable[syllable.length - 1];
 
-    if (!bpmfChar || !bpmfTone) return null;
-    return `${bpmfChar}${bpmfTone}`;
+    if (!(bpmfChar in zhuyinMap) || !(bpmfTone in zhuyinTones)) return null;
+    return `${zhuyinMap[bpmfChar]}${zhuyinTones[bpmfTone]}`;
 };
 
 globalThis.accentedPinyin2Zhuyin = function (syllable) {
