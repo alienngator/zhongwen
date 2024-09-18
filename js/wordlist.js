@@ -42,7 +42,9 @@ chrome.storage.local.get(['wordList', 'zhuyin'], data => {
         entries.forEach(e => {
             e.timestamp = e.timestamp || 0;
             e.notes = (e.notes || EDIT_HTML);
-            e.zhuyin = convert2Zhuyin(e.pinyin);
+            // Assign values for pinyin and zhuyin if needed (i.e. new entries).
+            e.pinyin = e.pinyin || e.accentedPinyin;
+            e.zhuyin = e.zhuyin || convert2Zhuyin(e.numericPinyin);
             e.hanViet = e.hanViet || EMPTY_PLACEHOLDER;
         });
         // show new entries first
@@ -81,7 +83,9 @@ function convert2Zhuyin(pinyin) {
     let a = pinyin.split(/[\s·]+/);
     for (let i = 0; i < a.length; i++) {
         let syllable = a[i];
-        zhuyin.push(globalThis.accentedPinyin2Zhuyin(syllable));
+        // Include non-pinyin syllables as is (e.g. A in 哆啦A梦).
+        const syllableZhuyin = globalThis.numericPinyin2Zhuyin(syllable) || syllable;
+        zhuyin.push(syllableZhuyin);
     }
     return zhuyin.join(' ');
 }

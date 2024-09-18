@@ -217,8 +217,9 @@ function onKeyDown(keyDown) {
                 let entry = {
                     simplified: savedSearchResults[j][0],
                     traditional: savedSearchResults[j][1],
-                    pinyin: savedSearchResults[j][2],
+                    accentedPinyin: savedSearchResults[j][2],
                     definition: savedSearchResults[j][3],
+                    numericPinyin: savedSearchResults[j][4],
                     hanViet: savedSearchResults[j][5],
                 };
                 entries.push(entry);
@@ -851,7 +852,7 @@ function makeHtml(result, showToneColors) {
         entry = result.data[i][0].match(/^([^\s]+?)\s+([^\s]+?)\s+\[(.*?)\]?\s*\/(.+\/)/);
         if (!entry) continue;
 
-        const [full, trad, simp, pinyinSyllables, def] = entry;
+        const [full, trad, simp, numericPinyin, def] = entry;
         // Parse definition fields, which may or may not include Han Viet data.
         // TODO: Make this part of the regex match, when I'm less sleepy.
         const defFields = def.split('\t');
@@ -894,7 +895,7 @@ function makeHtml(result, showToneColors) {
         if (config.fontSize === 'small') {
             pinyinClass += '-small';
         }
-        let p = pinyinAndZhuyin(pinyinSyllables, showToneColors, pinyinClass);
+        let p = pinyinAndZhuyin(numericPinyin, showToneColors, pinyinClass);
         html += p[0];
 
         // Han Viet
@@ -936,7 +937,7 @@ function makeHtml(result, showToneColors) {
             html += '<br>';
         }
 
-        texts[i] = [simp, trad, p[1], enDef, pinyinSyllables, hanViet || undefined];
+        texts[i] = [simp, trad, p[1], enDef, numericPinyin, hanViet || undefined];
     }
     if (result.more) {
         html += '&hellip;<br/>';
@@ -1037,7 +1038,22 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
             text += '??';
             continue;
         }
+
+        let zhuyinClass = 'w-zhuyin';
+        if (config.fontSize === 'small') {
+            zhuyinClass += '-small';
+        }
+
         let m = parse(syllable);
+
+        // This syllable can't be parsed as pinyin (e.g. A in 哆啦A梦). Show as is.
+        if (!m) {
+            html += `<span class="${pinyinClass}">${syllable}</span>`;
+            text += syllable;
+            zhuyin += `<span class="${zhuyinClass}">${syllable}</span>`;
+            continue;
+        }
+
         if (showToneColors) {
             html += '<span class="' + pinyinClass + ' tone' + m[4] + '">';
         } else {
@@ -1047,11 +1063,6 @@ function pinyinAndZhuyin(syllables, showToneColors, pinyinClass) {
         html += m[1] + t[0] + m[3];
         html += '</span>';
         text += m[1] + t[1] + m[3];
-
-        let zhuyinClass = 'w-zhuyin';
-        if (config.fontSize === 'small') {
-            zhuyinClass += '-small';
-        }
 
         zhuyin += '<span class="tone' + m[4] + ' ' + zhuyinClass + '">'
             + globalThis.numericPinyin2Zhuyin(syllable) + '</span>';
