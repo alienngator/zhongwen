@@ -42,7 +42,9 @@ chrome.storage.local.get(['wordList', 'zhuyin'], data => {
         entries.forEach(e => {
             e.timestamp = e.timestamp || 0;
             e.notes = (e.notes || EDIT_HTML);
-            e.zhuyin = convert2Zhuyin(e.pinyin);
+            // Assign values for pinyin and zhuyin if needed (i.e. new entries).
+            e.pinyin = e.pinyin || e.accentedPinyin;
+            e.zhuyin = e.zhuyin || convert2Zhuyin(e.numericPinyin);
             e.hanViet = e.hanViet || EMPTY_PLACEHOLDER;
         });
         // show new entries first

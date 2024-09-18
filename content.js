@@ -217,8 +217,9 @@ function onKeyDown(keyDown) {
                 let entry = {
                     simplified: savedSearchResults[j][0],
                     traditional: savedSearchResults[j][1],
-                    pinyin: savedSearchResults[j][4],
+                    accentedPinyin: savedSearchResults[j][2],
                     definition: savedSearchResults[j][3],
+                    numericPinyin: savedSearchResults[j][4],
                     hanViet: savedSearchResults[j][5],
                 };
                 entries.push(entry);
