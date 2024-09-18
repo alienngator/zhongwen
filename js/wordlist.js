@@ -81,7 +81,9 @@ function convert2Zhuyin(pinyin) {
     let a = pinyin.split(/[\s·]+/);
     for (let i = 0; i < a.length; i++) {
         let syllable = a[i];
-        zhuyin.push(globalThis.accentedPinyin2Zhuyin(syllable));
+        // Include non-pinyin syllables as is (e.g. A in 哆啦A梦).
+        const syllableZhuyin = globalThis.numericPinyin2Zhuyin(syllable) || syllable;
+        zhuyin.push(syllableZhuyin);
     }
     return zhuyin.join(' ');
 }
