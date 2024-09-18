@@ -258,21 +258,21 @@ function onKeyDown(keyDown) {
             }
             break;
 
-        // case 84: // 't'
-        //     {
-        //         let sel = encodeURIComponent(
-        //             window.getSelection().toString());
+        case 84: // 't'
+            {
+                let sel = encodeURIComponent(
+                    window.getSelection().toString());
 
-        //         // https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=%E8%BF%9B%E8%A1%8C
-        //         let tatoeba = 'https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=' + sel;
+                // https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=%E8%BF%9B%E8%A1%8C
+                let tatoeba = 'https://tatoeba.org/eng/sentences/search?from=cmn&to=eng&query=' + sel;
 
-        //         chrome.runtime.sendMessage({
-        //             type: 'open',
-        //             tabType: 'tatoeba',
-        //             url: tatoeba
-        //         });
-        //     }
-        //     break;
+                chrome.runtime.sendMessage({
+                    type: 'open',
+                    tabType: 'tatoeba',
+                    url: tatoeba
+                });
+            }
+            break;
 
         case 86: // 'v'
             if (config.vocab && savedSearchResults.vocab) {
@@ -1083,6 +1083,7 @@ let miniHelp = `
     <tr><td><b>Alt + 2 :</b></td><td>&nbsp;Taiwan MoE Dict</td></tr>
     <tr><td><b>Alt + 3 :</b></td><td>&nbsp;Thi Viện Hvdic</td></tr>
     <tr><td><b>Alt + 4 :</b></td><td>&nbsp;Baidu (tra tên riêng, ngôn ngữ mạng)</td></tr>
+    <tr><td><b>t&nbsp;:</b></td><td>&nbsp;Tatoeba (tra mẫu câu)</td></tr>
     </table>`;
 
 // event listener
